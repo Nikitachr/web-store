@@ -1,0 +1,25 @@
+@import "variables";
+
+.bg {
+  &__color {
+    &--1 {
+      background-color: $page-bg;
+    }
+
+    &--2 {
+      background-color: $main-blue;
+    }
+
+    &--3 {
+      background-color: $light-blue;
+    }
+
+    &--4 {
+      background-color: $input-bg;
+    }
+
+    &--5 {
+      background-color: $placeholder;
+    }
+  }
+}

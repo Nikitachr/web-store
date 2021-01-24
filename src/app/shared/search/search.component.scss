@@ -1,0 +1,16 @@
+@import "src/assets/scss/variables";
+
+:host {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: $input-bg;
+  border-radius: 50px;
+}
+input {
+  ::placeholder {
+    color: $placeholder;
+  }
+}
+

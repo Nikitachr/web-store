@@ -1,0 +1,57 @@
+@import "src/assets/scss/variables";
+
+:host {
+  height: 80px;
+  border-bottom: 1px solid $line;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1394px;
+  padding: 0 20px;
+}
+
+.logo {
+  @media (max-width: 870px) {
+    display: none;
+  }
+}
+
+.hamburger {
+  @media (min-width: 870px) {
+    display: none;
+  }
+  margin-right: 20px;
+}
+
+app-search {
+  max-width: 670px;
+  @media (max-width: 870px) {
+    margin-right: 20px !important;
+  }
+}
+
+.status {
+  min-width: 154px;
+  @media (max-width: 870px) {
+    display: none;
+  }
+}
+
+.sum {
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #D6D8E7;
+  padding: 0 20px;
+  @media (max-width: 870px) {
+    display: none;
+  }
+}
+
+.cart {
+  border-radius: 0 4px 4px 0;
+  padding: 0 10px;
+  @media (max-width: 870px) {
+    border-radius: 4px;
+  }
+}
+
