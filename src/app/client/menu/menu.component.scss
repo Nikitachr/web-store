@@ -1,0 +1,14 @@
+@import "src/assets/scss/variables";
+
+:host {
+  width: 100%;
+  background-color: $page-bg;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 20px;
+}
+
+.menu {
+  max-width: 500px;
+}

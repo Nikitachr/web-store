@@ -9,6 +9,8 @@ import { SvgStatusComponent } from './svgs/svg-status/svg-status.component';
 import { SvgComponent } from 'src/app/shared/svgs/svg.component';
 import { SvgCartComponent } from './svgs/svg-cart/svg-cart.component';
 import { SvgHamburgerComponent } from './svgs/svg-hamburger/svg-hamburger.component';
+import { MenuItemComponent } from './menu-item/menu-item.component';
+import { SvgArrowComponent } from './svgs/svg-arrow/svg-arrow.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SvgHamburgerComponent } from './svgs/svg-hamburger/svg-hamburger.compon
     SvgStatusComponent,
     SvgComponent,
     SvgCartComponent,
-    SvgHamburgerComponent
+    SvgHamburgerComponent,
+    MenuItemComponent,
+    SvgArrowComponent
   ],
   imports: [
     CommonModule
@@ -30,7 +34,9 @@ import { SvgHamburgerComponent } from './svgs/svg-hamburger/svg-hamburger.compon
     SvgStatusComponent,
     SvgSearchComponent,
     SvgCartComponent,
-    SvgHamburgerComponent
+    SvgHamburgerComponent,
+    SvgArrowComponent,
+    MenuItemComponent
   ]
 })
 export class SharedModule { }
