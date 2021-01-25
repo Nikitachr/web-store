@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "web-store"
+  "defaultProject": "web-store",
+  "cli": {
+    "analytics": "31b9a912-4b09-4b3f-b296-aa89657cd78b"
+  }
 }

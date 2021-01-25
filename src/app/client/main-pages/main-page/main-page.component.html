@@ -1,1 +1,27 @@
-<p>main-page works!</p>
+<section class="d__flex w__100per m__top--30 m">
+  <div class="d__flex d__flex--direction-column d__flex--items-center w__260 m__right--30">
+    <div class="catalog-title d__flex d__flex--items-center w__100per bg__color--3 m__bottom--10">
+      <img class="m__right--20" src="assets/svg/catalog.svg" alt="catalog">
+      <span class="text__fz--18 text__fw--600 text__color--2 text__transform--uppercase">Каталог товаров</span>
+    </div>
+
+    <div class="menu w__100per">
+      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Чехлы"></app-menu-item>
+      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Cтекла"></app-menu-item>
+      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Кабели/переходники"></app-menu-item>
+      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Зарядные устройства"></app-menu-item>
+      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Аксессуары для смарт-часов"></app-menu-item>
+    </div>
+  </div>
+
+  <div class="slider w__100per bg__color--5"></div>
+</section>
+
+<section class="top-sales w__100per m__top--30">
+  <div class="top-sales-title w__120">
+    <span class="text__fz--20 text__fw--500 text__color--3">Топ продаж</span>
+  </div>
+  <div class="d__flex m__top--20">
+    <app-product-card></app-product-card>
+  </div>
+</section>
