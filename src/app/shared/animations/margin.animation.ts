@@ -6,9 +6,9 @@ export const marginAnimation = trigger('hoverUnhover', [
     marginTop: '-30px'
   })),
   state('unhover', style({
-    marginTop: '10px'
+    marginTop: '0px'
   })),
   transition('hover <=> unhover', [
-    animate('0.3s ease-in-out')
+    animate('0.2s ease-in-out')
   ])
 ]);

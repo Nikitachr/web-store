@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CloseScrollStrategy, ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-main-view',
@@ -8,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class MainViewComponent implements OnInit {
 
   isOpen: boolean;
+  scrollStrategy: ScrollStrategy;
 
-  constructor() { }
+  constructor(private readonly sso: ScrollStrategyOptions) { }
 
   ngOnInit(): void {
+    this.scrollStrategy = this.sso.block();
   }
 
 }

@@ -6,7 +6,7 @@ import { opacityAnimation } from 'src/app/shared/animations/opacity.animation';
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
-  animations: [opacityAnimation, marginAnimation]
+  animations: [marginAnimation]
 })
 export class ProductCardComponent implements OnInit {
 
@@ -15,13 +15,11 @@ export class ProductCardComponent implements OnInit {
   @HostListener('mouseenter', ['$event'])
   onHover(): void {
     this.isHover = true;
-    console.log(this.isHover);
   }
 
   @HostListener('mouseleave', ['$event'])
   onUnhover(): void {
     this.isHover = false;
-    console.log(this.isHover);
   }
 
   constructor() { }
