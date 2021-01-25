@@ -7,8 +7,9 @@
     [cdkConnectedOverlayWidth]="'100%'"
     [cdkConnectedOverlayHeight]="'100%'"
     [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+
   >
-    <app-menu></app-menu>
+    <app-menu [@translate]></app-menu>
   </ng-template>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
