@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core';
 
 export enum EButtonType {
   Nav = 'Nav',
@@ -9,7 +9,8 @@ export enum EButtonType {
 @Component({
   selector: 'app-menu-item',
   templateUrl: './navigation-button.component.html',
-  styleUrls: ['./navigation-button.component.scss']
+  styleUrls: ['./navigation-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationButtonComponent implements OnInit {
 

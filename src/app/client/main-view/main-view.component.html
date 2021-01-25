@@ -1,5 +1,5 @@
 <div class="d__flex d__flex--direction-column d__flex--items-center">
-  <app-header (isOpen)="isOpen = $event" cdkOverlayOrigin #trigger="cdkOverlayOrigin"></app-header>
+  <app-header (isOpen)="open($event)" cdkOverlayOrigin #trigger="cdkOverlayOrigin"></app-header>
   <ng-template
     cdkConnectedOverlay
     [cdkConnectedOverlayOrigin]="trigger"

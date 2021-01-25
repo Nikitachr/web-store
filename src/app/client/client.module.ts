@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutModule } from '@angular/cdk/layout';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { MainViewComponent } from 'src/app/client/main-view/main-view.component';
 import { HeaderComponent } from 'src/app/client/header/header.component';
 import { FooterComponent } from 'src/app/client/footer/footer.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MenuComponent } from './menu/menu.component';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { MenuComponent } from 'src/app/client/menu/menu.component';
+
 
 const routes: Routes = [
   {
@@ -24,7 +26,8 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    OverlayModule
+    OverlayModule,
+    LayoutModule
   ]
 })
 export class ClientModule { }

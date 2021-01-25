@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnInit } from '@angular/core';
 import { marginAnimation } from 'src/app/shared/animations/margin.animation';
 import { opacityAnimation } from 'src/app/shared/animations/opacity.animation';
 
@@ -6,7 +6,8 @@ import { opacityAnimation } from 'src/app/shared/animations/opacity.animation';
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
-  animations: [marginAnimation]
+  animations: [marginAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent implements OnInit {
 
