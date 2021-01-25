@@ -1,0 +1,39 @@
+@import "../../../../assets/scss/variables";
+
+:host(.nav) {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 15px;
+  &:hover {
+    background-color: darken($page-bg, 10);
+  }
+  border-radius: 8px;
+}
+
+:host(.active) {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  height: 42px;
+  padding: 0 15px;
+  background-color: $light-blue;
+  &:hover {
+    background-color: darken($light-blue, 10);
+  }
+  border-radius: 50px;
+}
+
+:host(.disabled) {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 15px;
+  color: #5c5c5c;
+  background-color: $placeholder;
+  &:hover {
+    background-color: darken($placeholder, 10);
+  }
+  border-radius: 50px;
+}
+

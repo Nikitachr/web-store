@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SvgComponent } from 'src/app/shared/svgs/svg.component';
+import { SvgComponent } from 'src/app/shared/components/svgs/svg.component';
 
 @Component({
   selector: 'app-svg-close',

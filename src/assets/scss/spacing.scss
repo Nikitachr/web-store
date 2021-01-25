@@ -150,11 +150,6 @@
 
   &__280 {
     width: 280px !important;
-
-    @media (max-width: 992px) {
-      width: calc(50% - 10px) !important;
-      margin-right: 10px;
-    }
   }
 
   &__320 {
@@ -171,18 +166,6 @@
 
   &__430 {
     width: 430px !important;
-  }
-
-  &__494 {
-    width: 494px !important;
-  }
-
-  &__594 {
-    width: 594px !important;
-
-    @media (max-width: 992px) {
-      width: 80% !important;
-    }
   }
 
   &__600 {

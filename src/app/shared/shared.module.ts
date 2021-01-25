@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SvgLogoComponent } from './svgs/svg-logo/svg-logo.component';
-import { SearchComponent } from './search/search.component';
-import { SvgSearchComponent } from './svgs/svg-search/svg-search.component';
-import { SvgCloseComponent } from './svgs/svg-close/svg-close.component';
-import { SvgStatusComponent } from './svgs/svg-status/svg-status.component';
-import { SvgComponent } from 'src/app/shared/svgs/svg.component';
-import { SvgCartComponent } from './svgs/svg-cart/svg-cart.component';
-import { SvgHamburgerComponent } from './svgs/svg-hamburger/svg-hamburger.component';
-import { NavigationButtonComponent } from './navigation-button/navigation-button.component';
-import { SvgArrowComponent } from './svgs/svg-arrow/svg-arrow.component';
-import { ProductCardComponent } from './product-card/product-card.component';
+import { SvgLogoComponent } from './components/svgs/svg-logo/svg-logo.component';
+import { SearchComponent } from './components/search/search.component';
+import { SvgSearchComponent } from './components/svgs/svg-search/svg-search.component';
+import { SvgCloseComponent } from './components/svgs/svg-close/svg-close.component';
+import { SvgStatusComponent } from './components/svgs/svg-status/svg-status.component';
+import { SvgComponent } from 'src/app/shared/components/svgs/svg.component';
+import { SvgCartComponent } from './components/svgs/svg-cart/svg-cart.component';
+import { SvgHamburgerComponent } from './components/svgs/svg-hamburger/svg-hamburger.component';
+import { NavigationButtonComponent } from './components/navigation-button/navigation-button.component';
+import { SvgArrowComponent } from './components/svgs/svg-arrow/svg-arrow.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ProductCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     SvgLogoComponent,
@@ -39,7 +41,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     SvgHamburgerComponent,
     SvgArrowComponent,
     NavigationButtonComponent,
-    ProductCardComponent
+    ProductCardComponent,
   ]
 })
 export class SharedModule { }
