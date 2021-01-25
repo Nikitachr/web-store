@@ -3,7 +3,7 @@
 :host(.nav) {
   display: flex;
   align-items: center;
-  height: 42px;
+  height: 50px;
   padding: 0 15px;
   &:hover {
     background-color: darken($page-bg, 10);

@@ -14,6 +14,7 @@ import { SvgHamburgerComponent } from './components/svgs/svg-hamburger/svg-hambu
 import { NavigationButtonComponent } from './components/navigation-button/navigation-button.component';
 import { SvgArrowComponent } from './components/svgs/svg-arrow/svg-arrow.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     SvgHamburgerComponent,
     NavigationButtonComponent,
     SvgArrowComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ExpansionPanelComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     SvgArrowComponent,
     NavigationButtonComponent,
     ProductCardComponent,
+    ExpansionPanelComponent
   ]
 })
 export class SharedModule { }

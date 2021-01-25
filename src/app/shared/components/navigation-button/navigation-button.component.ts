@@ -40,7 +40,7 @@ export class NavigationButtonComponent implements OnInit {
         this.color = '#5c5c5c';
         break;
       case EButtonType.Nav:
-        this.color = '#2264D1';
+        this.color = '#76A9FF';
         break;
     }
   }

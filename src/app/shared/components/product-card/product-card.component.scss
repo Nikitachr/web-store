@@ -1,6 +1,7 @@
-@import "../../../../assets/scss/variables";
+@import "src/assets/scss/variables";
 
 :host {
+  cursor: pointer;
   width: 260px;
   height: 400px;
   border-radius: 5px;
