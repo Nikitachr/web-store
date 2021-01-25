@@ -1,5 +1,5 @@
 <section class="d__flex w__100per m__top--30 m">
-  <div class="d__flex d__flex--direction-column d__flex--items-center w__260 m__right--30">
+  <div class="catalog d__flex d__flex--direction-column d__flex--items-center w__260 m__right--30">
     <div class="catalog-title d__flex d__flex--items-center w__100per bg__color--3 m__bottom--10">
       <img class="m__right--20" src="assets/svg/catalog.svg" alt="catalog">
       <span class="text__fz--18 text__fw--600 text__color--2 text__transform--uppercase">Каталог товаров</span>
@@ -21,7 +21,10 @@
   <div class="top-sales-title w__120">
     <span class="text__fz--20 text__fw--500 text__color--3">Топ продаж</span>
   </div>
-  <div class="d__flex m__top--20">
-    <app-product-card></app-product-card>
+  <div class="d__flex m__top--20 d__flex--wrap d__flex--justify-around">
+    <app-product-card class="m--10"></app-product-card>
+    <app-product-card class="m--10"></app-product-card>
+    <app-product-card class="m--10"></app-product-card>
+    <app-product-card class="m--10"></app-product-card>
   </div>
 </section>
