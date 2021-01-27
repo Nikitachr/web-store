@@ -32,8 +32,8 @@ export class MainViewComponent implements OnInit {
 
   }
 
-  open(event: boolean): void {
-    this.isOpen = event;
+  open(): void {
+    this.isOpen = !this.isOpen;
   }
 
 }

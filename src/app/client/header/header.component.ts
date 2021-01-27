@@ -8,8 +8,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() isOpen = new EventEmitter<boolean>();
-  showMenu = false;
+  @Output() isOpen = new EventEmitter<void>();
 
   constructor() { }
 
@@ -17,8 +16,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggle(): void {
-    this.showMenu = !this.showMenu;
-    this.isOpen.emit(this.showMenu);
+    this.isOpen.emit();
   }
 
 }

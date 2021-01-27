@@ -1,1 +1,7 @@
-<p>expansion-panel works!</p>
+<div #panel class="div w__100per m__top--20">
+  <div class="d__flex d__flex--items-center m__bottom--10" (click)="onExpand()">
+    <div class="circle m__right--20 cursor__pointer d__flex d__flex--direction-column d__flex--items-center d__flex--justify-center text__fz--24 text__fw--600 text__color--2">-</div>
+    <span class="text__fz--24 text__fw--600">{{title}}</span>
+  </div>
+  <p #text class="p__15">Доставка по Украине осуществляется компанией «Нова Пошта». Посылка доставляется в течение 1-3 рабочих дней с даты отправки заказа. Посылку следует забрать в течение 5-ти дней с момента доставки. По прошествии 5-ти дней компанией Новая Почта взымается доплата за хранение отправления.</p>
+</div>
