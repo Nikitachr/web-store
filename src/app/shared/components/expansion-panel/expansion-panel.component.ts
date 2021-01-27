@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { TimelineMax } from 'gsap';
+import { TimelineMax, gsap, CSSPlugin } from 'gsap';
 
 @Component({
   selector: 'app-expansion-panel',
@@ -17,12 +17,14 @@ export class ExpansionPanelComponent implements OnInit {
   expand: boolean;
   anime: TimelineMax;
 
-  constructor() { }
+  constructor() {
+    gsap.registerPlugin( CSSPlugin );
+  }
 
   ngOnInit(): void {
     this.anime = new TimelineMax();
-    this.anime.set(this.panel.nativeElement, { height: 60 });
-    this.anime.set(this.text.nativeElement, { opacity: 0 });
+    this.anime.set(this.panel.nativeElement, { height: "60" });
+    this.anime.set(this.text.nativeElement, { opacity: "0" });
   }
 
   onExpand(): void {
@@ -36,11 +38,11 @@ export class ExpansionPanelComponent implements OnInit {
 
   playInAnimation(): void {
     this.anime.to(this.panel.nativeElement, 0.5, { height: 'auto' })
-      .to(this.text.nativeElement, 0.5, { opacity: 1 }, '<');
+      .to(this.text.nativeElement, 0.5, { opacity: "1" }, '<');
   }
 
   playOutAnimation(): void {
-    this.anime.to(this.panel.nativeElement, 0.5, { height: 60 })
-      .to(this.text.nativeElement, 0.5, { opacity: 0 }, '<');
+    this.anime.to(this.panel.nativeElement, 0.5, { height: "60" })
+      .to(this.text.nativeElement, 0.5, { opacity: "0" }, '<');
   }
 }
