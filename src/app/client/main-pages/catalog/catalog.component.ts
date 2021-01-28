@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-
-import { ActivatedRoute } from '@angular/router';
-import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
 import { Observable } from 'rxjs';
+
+import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
 
 @Component({
   selector: 'app-catalog',
@@ -15,10 +14,7 @@ export class CatalogComponent implements OnInit {
 
   constructor(@Inject(URL_PARAMS) readonly params$: Observable<any>) { }
 
-
-
   ngOnInit(): void {
     this.params$.subscribe(res => console.log(res));
   }
-
 }
