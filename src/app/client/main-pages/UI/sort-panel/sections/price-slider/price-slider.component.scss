@@ -1,4 +1,4 @@
-@import 'src/assets/scss/variables';
+@import '../../../../../../../assets/scss/variables';
 
 :host {
   width: 100%;
@@ -20,6 +20,7 @@
   .ngx-slider {
     outline: none !important;
     margin-top: 15px !important;
+    margin-bottom: 0 !important;
   }
 
   .ngx-slider .ngx-slider-pointer {

@@ -12,7 +12,7 @@ export class PriceSliderComponent implements OnInit {
   highValue = 60;
   options: Options = {
     floor: 0,
-    ceil: 100
+    ceil: 100,
   };
 
   constructor() { }

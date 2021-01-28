@@ -9,8 +9,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CatalogComponent } from './catalog/catalog.component';
 import { SortPanelComponent } from './UI/sort-panel/sort-panel.component';
 import { ExtensionPanelComponent } from './UI/extension-panel/extension-panel.component';
-import { PriceSliderComponent } from './UI/price-slider/price-slider.component';
+import { PriceSliderComponent } from './UI/sort-panel/sections/price-slider/price-slider.component';
 import { FormsModule } from "@angular/forms";
+import { BrandsComponent } from './UI/sort-panel/sections/brands/brands.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [MainPageComponent, CatalogComponent, SortPanelComponent, ExtensionPanelComponent, PriceSliderComponent],
+  declarations: [MainPageComponent, CatalogComponent, SortPanelComponent, ExtensionPanelComponent, PriceSliderComponent, BrandsComponent],
   imports: [
     FormsModule,
     NgxSliderModule,
