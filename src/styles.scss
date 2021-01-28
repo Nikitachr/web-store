@@ -91,6 +91,11 @@ input {
   }
 }
 
+button {
+  outline: none;
+  cursor: pointer;
+}
+
 * {
   font-family: 'Inter', sans-serif;;
 }

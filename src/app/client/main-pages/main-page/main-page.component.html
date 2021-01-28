@@ -6,11 +6,11 @@
     </div>
 
     <div class="menu w__100per">
-      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Чехлы"></app-menu-item>
-      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Cтекла"></app-menu-item>
-      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Кабели/переходники"></app-menu-item>
-      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Зарядные устройства"></app-menu-item>
-      <app-menu-item class="w__100per cursor__pointer nav" type="Nav" text="Аксессуары для смарт-часов"></app-menu-item>
+      <app-menu-item routerLink="/catalog" [queryParams]="{category: 'test'}" class="w__100per cursor__pointer nav" type="Nav" text="Чехлы"></app-menu-item>
+      <app-menu-item routerLink="/catalog" class="w__100per cursor__pointer nav" type="Nav" text="Cтекла"></app-menu-item>
+      <app-menu-item routerLink="/catalog" class="w__100per cursor__pointer nav" type="Nav" text="Кабели/переходники"></app-menu-item>
+      <app-menu-item routerLink="/catalog" class="w__100per cursor__pointer nav" type="Nav" text="Зарядные устройства"></app-menu-item>
+      <app-menu-item routerLink="/catalog" class="w__100per cursor__pointer nav" type="Nav" text="Аксессуары для смарт-часов"></app-menu-item>
     </div>
   </div>
 
@@ -43,7 +43,7 @@
 </section>
 
 <section class="qa m__top--30 m__bottom--70">
-  <app-expansion-panel [title]="'Доставка'" ></app-expansion-panel>
-  <app-expansion-panel [title]="'Способы оплаты'" ></app-expansion-panel>
-  <app-expansion-panel [title]="'Условия возврата'" ></app-expansion-panel>
+  <app-expansion-panel [title]="'Доставка'" >Доставка по Украине осуществляется компанией «Нова Пошта». Посылка доставляется в течение 1-3 рабочих дней с даты отправки заказа. Посылку следует забрать в течение 5-ти дней с момента доставки. По прошествии 5-ти дней компанией Новая Почта взымается доплата за хранение отправления.</app-expansion-panel>
+  <app-expansion-panel [title]="'Способы оплаты'" >Доставка по Украине осуществляется компанией «Нова Пошта». Посылка доставляется в течение 1-3 рабочих дней с даты отправки заказа. Посылку следует забрать в течение 5-ти дней с момента доставки. По прошествии 5-ти дней компанией Новая Почта взымается доплата за хранение отправления.</app-expansion-panel>
+  <app-expansion-panel [title]="'Условия возврата'" >Доставка по Украине осуществляется компанией «Нова Пошта». Посылка доставляется в течение 1-3 рабочих дней с даты отправки заказа. Посылку следует забрать в течение 5-ти дней с момента доставки. По прошествии 5-ти дней компанией Новая Почта взымается доплата за хранение отправления.</app-expansion-panel>
 </section>

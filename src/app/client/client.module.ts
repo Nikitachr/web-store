@@ -14,7 +14,6 @@ import { MenuComponent } from 'src/app/client/menu/menu.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     component: MainViewComponent,
     loadChildren: () => import('./main-pages/main-pages.module').then(m => m.MainPagesModule)
   }
@@ -25,9 +24,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(routes),
     OverlayModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class ClientModule { }
