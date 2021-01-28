@@ -1,20 +1,24 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
+import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [PARAMS_PROVIDERS]
 })
 export class CatalogComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(@Inject(URL_PARAMS) readonly params$: Observable<any>) { }
 
-  params$ = this.route.queryParams;
+
 
   ngOnInit(): void {
+    this.params$.subscribe(res => console.log(res));
   }
 
 }
