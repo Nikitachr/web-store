@@ -101,6 +101,10 @@
     &--auto {
       margin-left: auto;
     }
+
+    &--20 {
+      margin-left: 20px;
+    }
   }
 
   &__bottom {
@@ -146,6 +150,10 @@
 }
 
 .w {
+  &__90 {
+    width: 90px;
+  }
+
   &__120 {
     width: 120px !important;
   }
@@ -191,6 +199,10 @@
 .h {
   &__auto {
     height: auto !important;
+  }
+
+  &__35 {
+    height: 35px;
   }
 
   &__48 {

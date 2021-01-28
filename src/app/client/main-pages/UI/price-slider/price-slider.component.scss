@@ -1,0 +1,49 @@
+@import 'src/assets/scss/variables';
+
+:host {
+  width: 100%;
+}
+
+.price {
+  border: 1px solid $line;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.line {
+  width: 14px;
+  height: 2px;
+  background-color: $title;
+}
+
+::ng-deep {
+  .ngx-slider {
+    outline: none !important;
+    margin-top: 15px !important;
+  }
+
+  .ngx-slider .ngx-slider-pointer {
+    width: 11px !important;
+    height: 11px !important;
+    border-radius: 50% !important;
+    top: -4px !important;
+    background-color: $light-blue !important;
+    outline: none !important;
+  }
+
+  .ngx-slider .ngx-slider-pointer:after {
+    display: none;
+  }
+
+  .ngx-slider .ngx-slider-selection {
+    background-color: $light-blue !important;
+  }
+
+  .ngx-slider .ngx-slider-bubble {
+    display: none !important;
+  }
+}
+
+
+
+

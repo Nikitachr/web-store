@@ -1,0 +1,16 @@
+@import 'src/assets/scss/variables';
+
+.title {
+  height: 40px;
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
+}
+
+.svg {
+  transform: rotate(90deg);
+}
+
+.options {
+  border-bottom: 1px solid $line;
+  overflow: hidden;
+}

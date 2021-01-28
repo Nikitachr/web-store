@@ -1,0 +1,14 @@
+<div class="d__flex d__flex--items-center d__flex--justify-between">
+  <div class="price d__flex d__flex--items-center h__35 w__90">
+    <span class="text__fz--16 text__fw--400 m__right--10">$</span>
+    <input [(ngModel)]="value" class="text__fz--16 text__fw--400 w__100per" type="text">
+  </div>
+
+  <div class="line"></div>
+
+  <div class="price d__flex d__flex--items-center h__35 w__90">
+    <span class="text__fz--16 text__fw--400 m__right--10">$</span>
+    <input [(ngModel)]="highValue" class="text__fz--16 text__fw--400 w__100per" type="text">
+  </div>
+</div>
+<ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>

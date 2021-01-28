@@ -1,0 +1,7 @@
+@import 'src/assets/scss/variables';
+
+:host {
+  border: 1px solid $line;
+  border-radius: 7px;
+  padding: 20px 0;
+}
