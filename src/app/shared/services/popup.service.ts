@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ComponentPortal } from '@angular/cdk/portal';
 
@@ -6,11 +6,11 @@ import { ComponentPortal } from '@angular/cdk/portal';
   providedIn: 'root'
 })
 export class PopupService {
-  private components = new Subject<ComponentPortal<any>>();
+  private components = new Subject<any>();
   constructor() { }
 
-  public addPopup(component: ComponentPortal<any>): void {
-    this.components.next(component);
+  public addPopup(component: ComponentPortal<any>, ref: ElementRef): void {
+    this.components.next({ component, ref });
   }
 
   public removePopup(): void {
