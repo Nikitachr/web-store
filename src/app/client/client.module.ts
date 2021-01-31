@@ -9,6 +9,7 @@ import { HeaderComponent } from 'src/app/client/header/header.component';
 import { FooterComponent } from 'src/app/client/footer/footer.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MenuComponent } from 'src/app/client/menu/menu.component';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [MainViewComponent, HeaderComponent, FooterComponent, MenuComponent],
   imports: [
+    ReactiveComponentModule,
     CommonModule,
     SharedModule,
     OverlayModule,

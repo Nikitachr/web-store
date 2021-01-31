@@ -1,6 +1,15 @@
 <div class="d__flex d__flex--direction-column d__flex--items-center">
-  <app-header (isOpen)="open()" cdkOverlayOrigin></app-header>
-
+  <app-header cdkOverlayOrigin #trigger="cdkOverlayOrigin"></app-header>
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isOpen | ngrxPush"
+    [cdkConnectedOverlayWidth]="'100%'"
+    [cdkConnectedOverlayHeight]="'100%'"
+    [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+  >
+    <app-menu [@translate] ></app-menu>
+  </ng-template>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>

@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { translateInAnimation } from 'src/app/shared/animations/translateIn.animation';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { PopupService } from 'src/app/shared/services/popup.service';
+import { AppState, selectMenu } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-main-view',
@@ -12,17 +13,14 @@ import { PopupService } from 'src/app/shared/services/popup.service';
 })
 export class MainViewComponent implements OnInit {
 
-  isOpen: boolean;
+  isOpen = this.store.select(selectMenu);
   scrollStrategy: ScrollStrategy;
 
-  constructor(private readonly sso: ScrollStrategyOptions, public breakpointObserver: BreakpointObserver, private popup: PopupService) {
+  constructor(private readonly sso: ScrollStrategyOptions, public breakpointObserver: BreakpointObserver, private store: Store<AppState>) {
 
   }
   ngOnInit(): void {
-  }
-
-  open(): void {
-    this.isOpen = !this.isOpen;
+    this.scrollStrategy = this.sso.block();
   }
 
 }
