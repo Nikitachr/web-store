@@ -7,9 +7,9 @@ import { filter, first, tap } from 'rxjs/operators';
 
 import { PARAMS_PROVIDERS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
-import { AppState, selectFilter } from "src/app/reducers";
-import { Store } from "@ngrx/store";
-import { DisableFilterAction, ToggleFilterAction } from "src/app/actions/ui.actions";
+import { AppState, selectFilter } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
+import { DisableFilterAction, ToggleFilterAction } from 'src/app/actions/ui.actions';
 
 @Component({
   selector: 'app-up-panel',

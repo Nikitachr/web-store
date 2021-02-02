@@ -16,6 +16,7 @@ import { SvgArrowComponent } from './components/svgs/svg-arrow/svg-arrow.compone
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { DropDownListComponent } from './components/drop-down-list/drop-down-list.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DropDownListComponent } from './components/drop-down-list/drop-down-lis
     SvgArrowComponent,
     ProductCardComponent,
     ExpansionPanelComponent,
-    DropDownListComponent
+    DropDownListComponent,
+    CheckboxComponent
   ],
   imports: [
     CommonModule,
