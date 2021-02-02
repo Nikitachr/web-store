@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SvgComponent } from 'src/app/shared/components/svgs/svg.component';
 
 @Component({
@@ -7,6 +7,8 @@ import { SvgComponent } from 'src/app/shared/components/svgs/svg.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgCloseComponent extends  SvgComponent {
+
+  @Input() size = '14px';
 
   constructor() {
     super();

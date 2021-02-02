@@ -1,0 +1,21 @@
+<div *ngIf="!(breakpoint$ | ngrxPush)" class="options">
+  <app-option></app-option>
+</div>
+<div class="sort d__flex d__flex--items-center" cdkOverlayOrigin #sortList="cdkOverlayOrigin">
+  <span>default</span>
+  <app-svg-arrow (click)="showSort = !showSort" class="d__flex d__flex--items-center cursor__pointer" color="#76A9FF"></app-svg-arrow>
+</div>
+<span *ngIf="breakpoint$ | ngrxPush" class="text__fz--16 text__fw--500 cursor__pointer" (click)="showFilter()">Фильтр</span>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="sortList"
+  [cdkConnectedOverlayOpen]="showSort"
+>
+  <div class="list d__flex d__flex--direction-column">
+    <span class="cursor__pointer text__fz--16">Default</span>
+    <span class="cursor__pointer text__fz--16 m__top--5">$$-$</span>
+    <span class="cursor__pointer text__fz--16 m__top--5">$-$$</span>
+  </div>
+</ng-template>
+
+

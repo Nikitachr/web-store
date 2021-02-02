@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BrandsComponent } from './brands.component';
+import { UpPanelComponent } from 'src/app/client/main-pages/shared/up-panel/up-panel.component';
 
-describe('BrandsComponent', () => {
-  let component: BrandsComponent;
-  let fixture: ComponentFixture<BrandsComponent>;
+describe('UpPanelComponent', () => {
+  let component: UpPanelComponent;
+  let fixture: ComponentFixture<UpPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BrandsComponent ]
+      declarations: [ UpPanelComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BrandsComponent);
+    fixture = TestBed.createComponent(UpPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

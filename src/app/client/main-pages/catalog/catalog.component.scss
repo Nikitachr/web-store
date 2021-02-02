@@ -1,6 +1,19 @@
+@import "src/assets/scss/variables";
+
 :host {
   width: 100%;
   max-width: 1394px;
   padding: 0 20px;
-  height: 100vh;
+}
+
+.options {
+  @media (max-width: 870px) {
+    display: none;
+  }
+}
+
+.wraper {
+  border: 1px solid $line;
+  border-radius: 7px;
+  padding: 20px 0;
 }

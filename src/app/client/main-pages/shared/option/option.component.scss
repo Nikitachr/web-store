@@ -1,0 +1,11 @@
+@import "../../../../../assets/scss/variables";
+
+:host {
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 7px;
+  border: 1px solid $light-blue;
+  display: flex;
+  align-items: center;
+}
+

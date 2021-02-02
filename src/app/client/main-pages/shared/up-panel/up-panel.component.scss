@@ -1,0 +1,29 @@
+@import "src/assets/scss/variables";
+
+:host {
+  width: 100%;
+  border: 1px solid $line;
+  border-radius: 7px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort {
+  span {
+    border-bottom: 1px solid $line;
+    line-height: 19px;
+  }
+}
+
+app-svg-arrow {
+  transform: rotate(90deg);
+}
+
+.list {
+  border: 1px solid $line;
+  padding: 7px 10px;
+  border-radius: 7px;
+  background-color: $page-bg;
+}
