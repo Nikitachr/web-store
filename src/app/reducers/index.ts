@@ -11,10 +11,12 @@ import { UiActions } from 'src/app/actions/ui.actions';
 
 export interface UiState {
   menu: boolean;
+  filter: boolean;
 }
 
 const initialUiState: UiState = {
-  menu: false
+  menu: false,
+  filter: false
 };
 
 export interface AppState {
@@ -33,6 +35,16 @@ export function uiReducer(state: UiState = initialUiState, action: UiActions): U
         ...state,
         menu: false
       };
+    case UiActionTypes.toggleFilter:
+      return {
+        ...state,
+        filter: !state.filter
+      };
+    case UiActionTypes.disableFilter:
+      return {
+        ...state,
+        filter: false
+      };
     default:
       return state;
   }
@@ -43,5 +55,6 @@ export const reducers: ActionReducerMap<AppState> = {
 };
 
 export const selectMenu = (state: AppState) => state.ui.menu;
+export const selectFilter = (state: AppState) => state.ui.filter;
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

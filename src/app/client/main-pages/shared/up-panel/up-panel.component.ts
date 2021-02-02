@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GlobalPositionStrategy, Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { SortPanelComponent } from 'src/app/client/main-pages/shared/sort-panel/sort-panel.component';
-import { first } from 'rxjs/operators';
+import { filter, first, tap } from 'rxjs/operators';
 
 import { PARAMS_PROVIDERS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
+import { AppState, selectFilter } from "src/app/reducers";
+import { Store } from "@ngrx/store";
+import { DisableFilterAction, ToggleFilterAction } from "src/app/actions/ui.actions";
 
 @Component({
   selector: 'app-up-panel',
@@ -18,19 +21,33 @@ import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brake
 export class UpPanelComponent implements OnInit {
 
   showSort = false;
-  isFilter = false;
   position = GlobalPositionStrategy;
+  filter$ = this.store.select(selectFilter);
+  overlayRef: OverlayRef;
 
-  constructor(@Inject(BREAKPOINT) readonly breakpoint$: Observable<boolean>, private overlay: Overlay) { }
+  constructor(
+    @Inject(BREAKPOINT) readonly breakpoint$: Observable<boolean>,
+    private overlay: Overlay,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.breakpoint$.pipe(
+      tap(res => {
+        if (!res) {
+          this.store.dispatch(new DisableFilterAction());
+          this.overlayRef?.dispose();
+        }
+      })
+    ).subscribe();
+
+    this.filter$.pipe(
+      filter(res => res === true),
+      tap(_ => this.showOverlay())
+    ).subscribe();
   }
 
-  showFilter(): void {
-    this.isFilter = !this.isFilter;
-    if (!this.isFilter) {
-      return;
-    }
+  showOverlay(): void {
     const config = new OverlayConfig();
     config.positionStrategy = this.overlay.position()
       .global()
@@ -39,12 +56,16 @@ export class UpPanelComponent implements OnInit {
     config.height = '100vh';
     config.width = '350px';
     config.hasBackdrop = true;
-    const overlayRef = this.overlay.create(config);
-    overlayRef.attach(new ComponentPortal(SortPanelComponent));
-    overlayRef.backdropClick().pipe(first()).subscribe(() => {
-      this.isFilter = false;
-      overlayRef.dispose();
+    this.overlayRef = this.overlay.create(config);
+    this.overlayRef.attach(new ComponentPortal(SortPanelComponent));
+    this.overlayRef.backdropClick().pipe(first()).subscribe(() => {
+      this.store.dispatch(new DisableFilterAction());
+      this.overlayRef?.dispose();
     });
+  }
+
+  showFilter(): void {
+    this.store.dispatch(new ToggleFilterAction());
   }
 
 }

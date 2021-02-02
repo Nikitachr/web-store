@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
-import { ToggleMenu } from 'src/app/actions/ui.actions';
+import { ToggleMenuAction } from 'src/app/actions/ui.actions';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggle(): void {
-   this.store.dispatch(new ToggleMenu());
+   this.store.dispatch(new ToggleMenuAction());
   }
 
 
