@@ -4,8 +4,9 @@ export enum UiActionTypes {
   toggleMenu = '[UI] Toggle menu',
   disableMenu = '[UI] Disable menu',
   toggleFilter = '[Ui] Toggle filter',
-  disableFilter = '[Ui] Disable filter'
-
+  disableFilter = '[Ui] Disable filter',
+  startLoading = '[Ui] Start loading',
+  endLoading = '[Ui] End loading'
 }
 
 export class ToggleMenuAction implements Action {
@@ -24,5 +25,19 @@ export class DisableFilterAction implements Action {
   readonly type = UiActionTypes.disableFilter;
 }
 
-export type UiActions = ToggleMenuAction | DisableMenuAction | ToggleFilterAction | DisableFilterAction;
+export class StartLoadingAction implements Action {
+  readonly type = UiActionTypes.startLoading;
+}
+
+export class EndLoadingAction implements Action {
+  readonly type = UiActionTypes.endLoading;
+}
+
+export type UiActions =
+    ToggleMenuAction
+  | DisableMenuAction
+  | ToggleFilterAction
+  | DisableFilterAction
+  | StartLoadingAction
+  | EndLoadingAction;
 

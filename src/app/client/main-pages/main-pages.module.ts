@@ -15,6 +15,7 @@ import { PriceSliderComponent } from './shared/sort-panel/sections/price-slider/
 import { BrandsComponent } from './shared/sort-panel/sections/brands/brands.component';
 import { UpPanelComponent } from './shared/up-panel/up-panel.component';
 import { OptionComponent } from './shared/option/option.component';
+import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.resolver';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
+    resolve: {
+      data: ProductParamsResolver
+    }
   },
   {
     path: 'main',

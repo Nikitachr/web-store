@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -11,6 +11,10 @@ import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from 'src/app/shared/services/http-client.service';
+import { CATEGORIES, organizationFactory } from 'src/app/shared/providers/category.provider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ReactiveComponentModule } from "@ngrx/component";
 
 @NgModule({
   declarations: [
@@ -24,10 +28,18 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MatProgressBarModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ReactiveComponentModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: CATEGORIES,
+      deps: [HttpClientService],
+      useFactory: organizationFactory
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

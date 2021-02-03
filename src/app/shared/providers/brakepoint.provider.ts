@@ -7,16 +7,14 @@ export const BREAKPOINT = new InjectionToken<Observable<boolean>>(
   'A stream with breakpoint',
 );
 
-export const BREAKPOINT_PROVIDERS: Provider[] = [
-  {
+export const BREAKPOINT_PROVIDERS: Provider = {
     provide: BREAKPOINT,
     deps: [BreakpointObserver],
     useFactory: organizationFactory,
-  },
-];
+  };
 
-export function organizationFactory(breakpointObserber: BreakpointObserver): Observable<boolean> {
-  return breakpointObserber
+export function organizationFactory(breakpointObserver: BreakpointObserver): Observable<boolean> {
+  return breakpointObserver
     .observe(['(max-width: 870px)'])
     .pipe(
       map((state: BreakpointState) => state.matches)

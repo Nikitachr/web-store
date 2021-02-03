@@ -1,5 +1,6 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { Component } from '@angular/core';
+import { AppState, selectLoading } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 })
 export class AppComponent {
   title = 'web-store';
-  constructor() {
+  loading$ = this.store.select(selectLoading);
+
+  constructor(private store: Store<AppState>) {
   }
 
 
