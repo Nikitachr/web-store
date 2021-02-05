@@ -1,20 +1,20 @@
-import { NgModule, Provider } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from 'src/app/shared/services/http-client.service';
 import { CATEGORIES, organizationFactory } from 'src/app/shared/providers/category.provider';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { ReactiveComponentModule } from "@ngrx/component";
 
 @NgModule({
   declarations: [

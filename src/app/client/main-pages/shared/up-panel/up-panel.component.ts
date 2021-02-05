@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { SortPanelComponent } from 'src/app/client/main-pages/shared/sort-panel/sort-panel.component';
 import { filter, first, takeUntil, tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
 import { PARAMS_PROVIDERS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
 import { AppState, selectFilter } from 'src/app/reducers';
-import { Store } from '@ngrx/store';
 import { DisableFilterAction, ToggleFilterAction } from 'src/app/actions/ui.actions';
+import { SortPanelComponent } from 'src/app/client/main-pages/shared/sort-panel/sort-panel.component';
 
 @Component({
   selector: 'app-up-panel',
@@ -22,7 +22,6 @@ export class UpPanelComponent implements OnInit, OnDestroy {
 
   unsub$ = new Subject<void>();
   showSort = false;
-  position = GlobalPositionStrategy;
   filter$ = this.store.select(selectFilter);
   overlayRef: OverlayRef;
 

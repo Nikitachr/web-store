@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-price-slider',
   templateUrl: './price-slider.component.html',
-  styleUrls: ['./price-slider.component.scss']
+  styleUrls: ['./price-slider.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PriceSliderComponent implements OnInit {
 

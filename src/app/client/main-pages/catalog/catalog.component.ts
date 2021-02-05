@@ -1,14 +1,11 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
 import { CATEGORIES } from 'src/app/shared/providers/category.provider';
 import { Category } from 'src/app/shared/models/category.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
-import { AppState } from 'src/app/reducers';
-import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-catalog',
@@ -28,8 +25,7 @@ export class CatalogComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.route.data.subscribe(data => console.log('Data :', data));
-    this.route.queryParams.subscribe(res => console.log(res));
+    this.params$.subscribe(res => console.log(res));
   }
 
   updateQueryParameters(): void {

@@ -16,6 +16,7 @@ import { BrandsComponent } from './shared/sort-panel/sections/brands/brands.comp
 import { UpPanelComponent } from './shared/up-panel/up-panel.component';
 import { OptionComponent } from './shared/option/option.component';
 import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.resolver';
+import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainPageComponent,
+    resolve: {
+      data: MainPageResolver
+    }
   },
 ];
 

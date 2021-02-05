@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
+
 import { ToggleMenuAction } from 'src/app/actions/ui.actions';
 
 @Component({
@@ -11,17 +12,13 @@ import { ToggleMenuAction } from 'src/app/actions/ui.actions';
 })
 export class HeaderComponent implements OnInit {
 
-
-
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-
   }
 
   toggle(): void {
    this.store.dispatch(new ToggleMenuAction());
   }
-
 
 }

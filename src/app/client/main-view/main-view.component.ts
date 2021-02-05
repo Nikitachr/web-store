@@ -1,12 +1,13 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { filter, tap } from 'rxjs/operators';
+
 import { translateInAnimation } from 'src/app/shared/animations/translateIn.animation';
 import { AppState, selectMenu } from 'src/app/reducers';
-import { Store } from '@ngrx/store';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
-import { Observable } from 'rxjs';
-import { filter, tap } from "rxjs/operators";
-import { DisableMenuAction } from "src/app/actions/ui.actions";
+import { DisableMenuAction } from 'src/app/actions/ui.actions';
 
 @Component({
   selector: 'app-main-view',

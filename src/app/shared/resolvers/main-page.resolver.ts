@@ -11,13 +11,13 @@ import { EndLoadingAction, StartLoadingAction } from 'src/app/actions/ui.actions
 @Injectable({
   providedIn: 'root'
 })
-export class ProductParamsResolver implements Resolve<any> {
+export class MainPageResolver implements Resolve<any> {
   constructor(private httpService: HttpClientService, private store: Store<AppState>) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     this.store.dispatch(new StartLoadingAction());
-    return this.httpService.query('products?category=6009bfa4e39c5a3510a19262').pipe(
+    return this.httpService.getCategories().pipe(
       tap(_ => this.store.dispatch(new EndLoadingAction()))
     );
   }

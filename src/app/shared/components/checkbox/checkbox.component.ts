@@ -1,10 +1,11 @@
-import { Component, HostListener, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, HostListener, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxComponent implements OnInit {
 

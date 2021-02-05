@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { AppState, selectLoading } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { fromEvent } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 
+import { opacityAnimation } from 'src/app/shared/animations/opacity.animation';
+import { AppState, selectLoading } from 'src/app/reducers';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [opacityAnimation]
 })
 export class AppComponent {
   title = 'web-store';

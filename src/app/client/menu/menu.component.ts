@@ -1,14 +1,9 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit, SkipSelf } from '@angular/core';
-import { marginAnimation } from 'src/app/shared/animations/margin.animation';
-import { AppState } from 'src/app/reducers';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { DisableMenuAction } from 'src/app/actions/ui.actions';
-import { HttpClientService } from 'src/app/shared/services/http-client.service';
-import { CategoryResponse } from 'src/app/shared/models/category-response.model';
-import { CATEGORIES } from 'src/app/shared/providers/category.provider';
-import { Observable } from 'rxjs';
-import { Category } from 'src/app/shared/models/category.model';
+import { marginAnimation } from 'src/app/shared/animations/margin.animation';
+import { AppState } from 'src/app/reducers';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +16,6 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>
-
   ) { }
 
   ngOnInit(): void {
