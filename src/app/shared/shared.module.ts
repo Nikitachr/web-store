@@ -17,6 +17,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { DropDownListComponent } from './components/drop-down-list/drop-down-list.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     ProductCardComponent,
     ExpansionPanelComponent,
     DropDownListComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    ScrollTopComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     ProductCardComponent,
     ExpansionPanelComponent,
     SvgCloseComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    ScrollTopComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,15 @@
+@import "src/assets/scss/variables";
+
+:host {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $light-blue;
+}
+
+app-svg-arrow {
+  transform: rotate(-90deg);
+}

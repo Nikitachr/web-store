@@ -1,2 +1,3 @@
 <mat-progress-bar *ngIf="loading$ | ngrxPush" class="progress" mode="indeterminate"></mat-progress-bar>
 <router-outlet></router-outlet>
+<app-scroll-top class="scroll-to-top cursor__pointer" (click)="scrollToTop()" [ngClass]="{'show-scrollTop': showBtn$ | ngrxPush}"></app-scroll-top>
