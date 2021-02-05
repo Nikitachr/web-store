@@ -49,7 +49,8 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     NavigationButtonComponent,
     ProductCardComponent,
     ExpansionPanelComponent,
-    SvgCloseComponent
+    SvgCloseComponent,
+    CheckboxComponent
   ]
 })
 export class SharedModule { }

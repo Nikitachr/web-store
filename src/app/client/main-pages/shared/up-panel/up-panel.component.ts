@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { SortPanelComponent } from 'src/app/client/main-pages/shared/sort-panel/sort-panel.component';
-import { filter, first, tap } from 'rxjs/operators';
+import { filter, first, takeUntil, tap } from 'rxjs/operators';
 
 import { PARAMS_PROVIDERS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
@@ -18,8 +18,9 @@ import { DisableFilterAction, ToggleFilterAction } from 'src/app/actions/ui.acti
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PARAMS_PROVIDERS, BREAKPOINT_PROVIDERS]
 })
-export class UpPanelComponent implements OnInit {
+export class UpPanelComponent implements OnInit, OnDestroy {
 
+  unsub$ = new Subject<void>();
   showSort = false;
   position = GlobalPositionStrategy;
   filter$ = this.store.select(selectFilter);
@@ -33,6 +34,7 @@ export class UpPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.breakpoint$.pipe(
+      takeUntil(this.unsub$),
       tap(res => {
         if (!res) {
           this.store.dispatch(new DisableFilterAction());
@@ -42,6 +44,7 @@ export class UpPanelComponent implements OnInit {
     ).subscribe();
 
     this.filter$.pipe(
+      takeUntil(this.unsub$),
       filter(res => res === true),
       tap(_ => this.showOverlay())
     ).subscribe();
@@ -66,6 +69,11 @@ export class UpPanelComponent implements OnInit {
 
   showFilter(): void {
     this.store.dispatch(new ToggleFilterAction());
+  }
+
+  ngOnDestroy(): void {
+    this.unsub$.next();
+    this.unsub$.complete();
   }
 
 }

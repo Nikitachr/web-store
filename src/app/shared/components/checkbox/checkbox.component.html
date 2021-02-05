@@ -1,4 +1,9 @@
-<div class="d__flex d__flex--items-center">
-  <div class="checkbox m__right--5"></div>
+<div class="d__flex d__flex--items-center cursor__pointer">
+  <div [ngStyle]="{
+  'backgroundColor': value ? '#76A9FF' : '#fff',
+  'border': value ? 'none' : '1px solid #D6D8E7'
+   }" class="checkbox m__right--10 d__flex d__flex--items-center d__flex--justify-center">
+    <img *ngIf="value" src="assets/svg/check.svg" class="noselect" alt="check">
+  </div>
   <ng-content></ng-content>
 </div>

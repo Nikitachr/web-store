@@ -5,7 +5,7 @@ import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-p
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
 import { CATEGORIES } from 'src/app/shared/providers/category.provider';
 import { Category } from 'src/app/shared/models/category.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
@@ -23,12 +23,24 @@ export class CatalogComponent implements OnInit {
     @Inject(URL_PARAMS) readonly params$: Observable<any>,
     @Inject(BREAKPOINT) readonly breakpoint$: Observable<boolean>,
     @Inject(CATEGORIES) private categories: Category[],
-    private route: ActivatedRoute,
-    private store: Store<AppState>,
-    private element: ElementRef
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
     this.route.data.subscribe(data => console.log('Data :', data));
+    this.route.queryParams.subscribe(res => console.log(res));
+  }
+
+  updateQueryParameters(): void {
+    this.router.navigate(
+      [],
+      {
+        queryParams: {
+          genre: 'rpg'
+        },
+        queryParamsHandling: 'merge'
+      }
+    );
   }
 }
