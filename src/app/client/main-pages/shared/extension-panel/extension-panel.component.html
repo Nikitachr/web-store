@@ -4,6 +4,6 @@
 </div>
 <div *ngIf="isExpand" [@isExpand] class="options d__flex d__flex--items-center d__flex--direction-column w__100per">
   <div class="p__20 w__100per">
-    <ng-content></ng-content>
+    <app-checkbox [value]="arr?.includes(item)" (valueChange)="check($event, item)" *ngFor="let item of data; let i = index">{{item}}</app-checkbox>
   </div>
 </div>

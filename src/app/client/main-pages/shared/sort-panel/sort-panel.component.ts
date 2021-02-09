@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { AppState, selectParams } from 'src/app/reducers';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AppState, selectDefaultParams } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
@@ -12,25 +12,20 @@ import { Router } from '@angular/router';
 export class SortPanelComponent implements OnInit {
 
   arr = { };
-  defaultParams = this.store.select(selectParams);
+  defaultParams = this.store.select(selectDefaultParams);
   constructor(private store: Store<AppState>, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onCheck(value: boolean, item: string, key: string): void {
-    this.arr = { ...this.arr, [key]: item };
+  onChange(value: string[], key: string): void {
+    this.arr = { ...this.arr, [key]: value || null };
     console.log(this.arr);
-    console.log(new URLSearchParams(this.arr).toString());
-    //console.log(value);
-    //console.log(item);
-    //console.log(key);
     this.router.navigate(
       [],
       {
         queryParams: this.arr,
-        queryParamsHandling: 'merge', // remove to replace all query params by provided
+        queryParamsHandling: 'merge'
       });
   }
-
 }

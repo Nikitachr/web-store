@@ -15,10 +15,12 @@ const initialUiState: UiState = {
 };
 
 export interface CatalogState {
+  defaultParams: any;
   params: any;
 }
 
 const initialCatalogState: CatalogState = {
+  defaultParams: null,
   params: null
 };
 
@@ -68,7 +70,7 @@ export function catalogReducer(state: CatalogState = initialCatalogState, action
   switch (action.type) {
     case UiActionTypes.updateParams:
       return {
-        ...state, params: action.payload
+        ...state, defaultParams: action.payload
       };
     default:
       return state;
@@ -83,6 +85,7 @@ export const reducers: ActionReducerMap<AppState> = {
 export const selectMenu = (state: AppState) => state.ui.menu;
 export const selectFilter = (state: AppState) => state.ui.filter;
 export const selectLoading = (state: AppState) => state.ui.loading;
+export const selectDefaultParams = (state: AppState) => state.catalog.defaultParams;
 export const selectParams = (state: AppState) => state.catalog.params;
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

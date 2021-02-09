@@ -1,9 +1,3 @@
-<app-extension-panel *ngFor="let i of defaultParams | ngrxPush | keyvalue" [title]="i.key">
-  <app-price-slider *ngIf="i.key === 'price'; else checkbox"></app-price-slider>
-  <ng-template #checkbox>
-    <app-checkbox (valueChange)="onCheck($event, item, i.key)" class="m__top--10" *ngFor="let item of i.value">
-      {{item}}
-    </app-checkbox>
-  </ng-template>
+<app-extension-panel (valueChange)="onChange($event, i.key)" *ngFor="let i of defaultParams | ngrxPush | keyvalue" [title]="i.key" [data]="i.value">
 </app-extension-panel>
 
