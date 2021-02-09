@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
@@ -17,8 +17,11 @@ export class ProductParamsResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     this.store.dispatch(new StartLoadingAction());
-    return this.httpService.query('products?category=6009bfa4e39c5a3510a19262').pipe(
-      tap(_ => this.store.dispatch(new EndLoadingAction()))
-    );
+    console.log(route.queryParams.category);
+    return forkJoin({
+      products: this.httpService.query(`category=${route.queryParams.category}`),
+      category: this.httpService.getCategory(route.queryParams.category),
+      params: this.httpService.getParams(route.queryParams.category)
+    }).pipe(tap(_ => this.store.dispatch(new EndLoadingAction())));
   }
 }

@@ -17,6 +17,7 @@ import { UpPanelComponent } from './shared/up-panel/up-panel.component';
 import { OptionComponent } from './shared/option/option.component';
 import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.resolver';
 import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
+import { AppModule } from "src/app/app.module";
 
 const routes: Routes = [
   {
@@ -51,14 +52,14 @@ const routes: Routes = [
     UpPanelComponent,
     OptionComponent
   ],
-  imports: [
-    OverlayModule,
-    FormsModule,
-    NgxSliderModule,
-    ReactiveComponentModule,
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild(routes),
-  ]
+    imports: [
+      OverlayModule,
+      FormsModule,
+      NgxSliderModule,
+      ReactiveComponentModule,
+      CommonModule,
+      SharedModule,
+      RouterModule.forChild(routes)
+    ]
 })
 export class MainPagesModule { }

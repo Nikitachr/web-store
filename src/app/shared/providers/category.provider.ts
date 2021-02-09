@@ -15,6 +15,6 @@ export const CATEGORIES = new InjectionToken<Observable<Category[]>>(
 export function organizationFactory(httpClientService: HttpClientService): Observable<Category[]> {
   return httpClientService.getCategories().pipe(
     first(),
-    map((res: CategoryResponse) => res.data),
+    map(res => res.data)
   );
 }

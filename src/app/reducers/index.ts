@@ -14,8 +14,17 @@ const initialUiState: UiState = {
   loading: false
 };
 
+export interface CatalogState {
+  params: any;
+}
+
+const initialCatalogState: CatalogState = {
+  params: null
+};
+
 export interface AppState {
   ui: UiState;
+  catalog: CatalogState;
 }
 
 export function uiReducer(state: UiState = initialUiState, action: UiActions): UiState {
@@ -55,12 +64,25 @@ export function uiReducer(state: UiState = initialUiState, action: UiActions): U
   }
 }
 
+export function catalogReducer(state: CatalogState = initialCatalogState, action: UiActions): CatalogState {
+  switch (action.type) {
+    case UiActionTypes.updateParams:
+      return {
+        ...state, params: action.payload
+      };
+    default:
+      return state;
+  }
+}
+
 export const reducers: ActionReducerMap<AppState> = {
-  ui: uiReducer
+  ui: uiReducer,
+  catalog: catalogReducer
 };
 
 export const selectMenu = (state: AppState) => state.ui.menu;
 export const selectFilter = (state: AppState) => state.ui.filter;
 export const selectLoading = (state: AppState) => state.ui.loading;
+export const selectParams = (state: AppState) => state.catalog.params;
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

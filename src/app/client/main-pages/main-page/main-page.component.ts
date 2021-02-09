@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CATEGORIES } from 'src/app/shared/providers/category.provider';
+import { Observable } from 'rxjs';
+import { Category } from 'src/app/shared/models/category.model';
 
 @Component({
   selector: 'app-main-page',
@@ -9,10 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(@Inject(CATEGORIES) public categories$: Observable<Category>, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.data.subscribe(res => console.log(res));
   }
 
 }

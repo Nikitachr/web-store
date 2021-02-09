@@ -1,4 +1,4 @@
-<section class="d__flex w__100per m__top--30 m">
+<section class="d__flex w__100per m__top--30 m" *ngrxLet="categories$ as categories">
   <div class="catalog d__flex d__flex--direction-column d__flex--items-center w__260 m__right--30">
     <div class="catalog-title d__flex d__flex--items-center w__100per bg__color--3 m__bottom--10">
       <img class="m__right--20" src="assets/svg/catalog.svg" alt="catalog">
@@ -6,11 +6,7 @@
     </div>
 
     <div class="menu w__100per">
-      <app-menu-item routerLink="/catalog" [queryParams]="{category: 'Чехлы'}" class="w__100per cursor__pointer nav" type="Nav" text="Чехлы"></app-menu-item>
-      <app-menu-item routerLink="/catalog" [queryParams]="{category: 'Cтекла'}" class="w__100per cursor__pointer nav" type="Nav" text="Cтекла"></app-menu-item>
-      <app-menu-item routerLink="/catalog" [queryParams]="{category: 'Кабели/переходники'}" class="w__100per cursor__pointer nav" type="Nav" text="Кабели/переходники"></app-menu-item>
-      <app-menu-item routerLink="/catalog" [queryParams]="{category: 'Зарядные устройства'}" class="w__100per cursor__pointer nav" type="Nav" text="Зарядные устройства"></app-menu-item>
-      <app-menu-item routerLink="/catalog" [queryParams]="{category: 'Аксессуары для смарт-часов'}" class="w__100per cursor__pointer nav" type="Nav" text="Аксессуары для смарт-часов"></app-menu-item>
+      <app-menu-item *ngFor="let category of categories" routerLink="/catalog" [queryParams]="{category: category._id}" class="w__100per cursor__pointer nav" type="Nav" text="{{category.full_name}}"></app-menu-item>
     </div>
   </div>
 
