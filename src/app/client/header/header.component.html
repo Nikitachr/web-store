@@ -1,7 +1,7 @@
 <app-svg-logo routerLink="/main" class="logo m__right--50 d__flex d__flex--items-center cursor__pointer" color="#2264D1"></app-svg-logo>
 <app-svg-hamburger (click)="toggle()" class="hamburger d__flex d__flex--items-center cursor__pointer"></app-svg-hamburger>
 <app-search class="w__100per m__right--50"></app-search>
-<div class="status d__flex d__flex--items-center m__right--50">
+<div (click)="onStatus()" class="status d__flex d__flex--items-center m__right--50">
   <span class="m__right--10 text__fz--18 cursor__pointer">Статус заказа</span>
   <app-svg-status class="d__flex d__flex--items-center" color="#2264D1"></app-svg-status>
 </div>

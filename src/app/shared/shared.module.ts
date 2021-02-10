@@ -18,6 +18,7 @@ import { ExpansionPanelComponent } from './components/expansion-panel/expansion-
 import { DropDownListComponent } from './components/drop-down-list/drop-down-list.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     ExpansionPanelComponent,
     DropDownListComponent,
     CheckboxComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     ExpansionPanelComponent,
     SvgCloseComponent,
     CheckboxComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    InputComponent
   ]
 })
 export class SharedModule { }

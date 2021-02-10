@@ -10,7 +10,7 @@ import {
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AppState, selectParams } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
-import { tap } from "rxjs/operators";
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-extension-panel',

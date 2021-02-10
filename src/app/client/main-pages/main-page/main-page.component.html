@@ -6,14 +6,15 @@
     </div>
 
     <div class="menu w__100per">
-      <app-menu-item *ngFor="let category of categories" routerLink="/catalog" [queryParams]="{category: category._id}" class="w__100per cursor__pointer nav" type="Nav" text="{{category.full_name}}"></app-menu-item>
+      <app-menu-item *ngFor="let category of categories" routerLink="/catalog" [queryParams]="{ category: category._id }" class="w__100per cursor__pointer nav" type="Nav" text="{{category.full_name}}"></app-menu-item>
     </div>
   </div>
 
   <div class="slider w__100per bg__color--5"></div>
-</section>
 
+</section>
 <section class="top-sales w__100per m__top--30">
+
   <div class="top-sales-title d__flex d__flex--items-center">
     <span class="text__fz--20 text__fw--500 text__color--3 m__right--10">Топ продаж</span>
     <img src="assets/imgs/trends.png" alt="trends">

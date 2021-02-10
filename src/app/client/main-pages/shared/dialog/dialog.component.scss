@@ -1,0 +1,23 @@
+@import "src/assets/scss/variables";
+
+:host {
+  width: 470px;
+  background-color: $page-bg;
+  border-radius: 30px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+app-svg-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+app-menu-item {
+  width: 210px;
+}

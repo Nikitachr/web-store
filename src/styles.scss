@@ -91,6 +91,14 @@ input {
   }
 }
 
+.dialog {
+  mat-dialog-container {
+    padding: 0;
+    border-radius: 30px;
+    background-color: $page-bg;
+  }
+}
+
 button {
   outline: none;
   cursor: pointer;

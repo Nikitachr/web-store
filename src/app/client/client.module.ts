@@ -10,8 +10,7 @@ import { HeaderComponent } from 'src/app/client/header/header.component';
 import { FooterComponent } from 'src/app/client/footer/footer.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MenuComponent } from 'src/app/client/menu/menu.component';
-import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -29,6 +28,7 @@ const routes: Routes = [
     SharedModule,
     OverlayModule,
     LayoutModule,
+    MatDialogModule,
     RouterModule.forChild(routes)
   ]
 })

@@ -17,8 +17,9 @@ import { UpPanelComponent } from './shared/up-panel/up-panel.component';
 import { OptionComponent } from './shared/option/option.component';
 import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.resolver';
 import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
-import { AppModule } from "src/app/app.module";
+import { MatDialogModule } from '@angular/material/dialog';
 import { OptionsComponent } from './shared/options/options.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 const routes: Routes = [
   {
@@ -52,16 +53,18 @@ const routes: Routes = [
     BrandsComponent,
     UpPanelComponent,
     OptionComponent,
-    OptionsComponent
+    OptionsComponent,
+    DialogComponent
   ],
-    imports: [
-      OverlayModule,
-      FormsModule,
-      NgxSliderModule,
-      ReactiveComponentModule,
-      CommonModule,
-      SharedModule,
-      RouterModule.forChild(routes)
-    ]
+  imports: [
+    OverlayModule,
+    FormsModule,
+    NgxSliderModule,
+    ReactiveComponentModule,
+    CommonModule,
+    SharedModule,
+    RouterModule.forChild(routes),
+    MatDialogModule
+  ]
 })
 export class MainPagesModule { }
