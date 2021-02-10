@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AppState, selectDefaultParams } from 'src/app/reducers';
+import { AppState, selectDefaultParams, selectParams } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { UpdateParamsAction } from 'src/app/actions/ui.actions';
 
 @Component({
   selector: 'app-sort-panel',
@@ -16,16 +17,11 @@ export class SortPanelComponent implements OnInit {
   constructor(private store: Store<AppState>, private router: Router) { }
 
   ngOnInit(): void {
+    this.store.select(selectParams).subscribe(res => this.arr = res);
   }
 
   onChange(value: string[], key: string): void {
     this.arr = { ...this.arr, [key]: value || null };
-    console.log(this.arr);
-    this.router.navigate(
-      [],
-      {
-        queryParams: this.arr,
-        queryParamsHandling: 'merge'
-      });
+    this.store.dispatch(new UpdateParamsAction(this.arr));
   }
 }

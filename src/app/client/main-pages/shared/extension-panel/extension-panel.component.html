@@ -4,6 +4,11 @@
 </div>
 <div *ngIf="isExpand" [@isExpand] class="options d__flex d__flex--items-center d__flex--direction-column w__100per">
   <div class="p__20 w__100per">
-    <app-checkbox [value]="arr?.includes(item)" (valueChange)="check($event, item)" *ngFor="let item of data; let i = index">{{item}}</app-checkbox>
+    <ng-container *ngIf="title !== 'price'; else price">
+      <app-checkbox [value]="arr?.includes(item)" (valueChange)="check($event, item)" *ngFor="let item of data; let i = index">{{item}}</app-checkbox>
+    </ng-container>
+    <ng-template #price>
+      <app-price-slider [max]="data.max" [min]="data.min"></app-price-slider>
+    </ng-template>
   </div>
 </div>

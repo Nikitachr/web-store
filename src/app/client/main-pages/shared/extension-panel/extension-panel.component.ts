@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
-import { Observable } from 'rxjs';
-import { BREAKPOINT_PROVIDERS } from "src/app/shared/providers/brakepoint.provider";
+import { AppState, selectParams } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
+import { tap } from "rxjs/operators";
 
 @Component({
   selector: 'app-extension-panel',
@@ -31,22 +39,24 @@ import { BREAKPOINT_PROVIDERS } from "src/app/shared/providers/brakepoint.provid
         animate('200ms ease', style({ height: 0 }))
       ])
     ]),
-  ],
-  providers: [PARAMS_PROVIDERS]
+  ]
 })
 export class ExtensionPanelComponent implements OnInit {
 
   @Input() title: string;
-  @Input() data: string[];
+  @Input() data: string[] | any;
   @Output() valueChange = new EventEmitter();
   isExpand: boolean;
   arr = [];
   query: string;
 
-  constructor(@Inject(URL_PARAMS) readonly params$: Observable<any>) { }
+  constructor(private store: Store<AppState>, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.params$.subscribe(res => this.arr = res[this.title]?.split(',') || []);
+    this.store.select(selectParams).pipe(
+      tap(_ => this.cd.markForCheck())
+    ).subscribe(res => this.arr = res[this.title]?.split(',') || []);
+    console.log(this.data.min);
   }
 
   check(value: boolean, item: string): void {

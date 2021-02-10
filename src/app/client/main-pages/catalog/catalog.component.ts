@@ -8,8 +8,8 @@ import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-p
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
 import { CATEGORIES } from 'src/app/shared/providers/category.provider';
 import { Category } from 'src/app/shared/models/category.model';
-import { AppState } from 'src/app/reducers';
-import { UpdateParamsAction } from 'src/app/actions/ui.actions';
+import { AppState, selectParams } from 'src/app/reducers';
+import { UpdateDefaultParamsAction, UpdateParamsAction } from 'src/app/actions/ui.actions';
 import { HttpClientService } from 'src/app/shared/services/http-client.service';
 
 @Component({
@@ -22,10 +22,6 @@ import { HttpClientService } from 'src/app/shared/services/http-client.service';
 export class CatalogComponent implements OnInit {
 
   title: string;
-  availableParams = this.route.data.pipe(
-    first(),
-    map(res => res.data.params)
-  );
 
   constructor(
     @Inject(URL_PARAMS) readonly params$: Observable<any>,
@@ -39,13 +35,27 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this.params$.subscribe(res => {
-      console.log(res);
       const query = new URLSearchParams(res).toString();
       this.httpService.query(query).subscribe();
     });
+
+    this.params$.pipe(
+      first(),
+      map(({ category, ...res }) => res ))
+      .subscribe(res => this.store.dispatch(new UpdateParamsAction(res)));
+
     this.route.data.pipe(first()).subscribe(res => {
-      this.store.dispatch(new UpdateParamsAction(res.data.params.data));
+      this.store.dispatch(new UpdateDefaultParamsAction(res.data.params.data));
       this.title = res.data.category.data.full_name;
+    });
+
+    this.store.select(selectParams).subscribe(res => {
+      this.router.navigate(
+        [],
+        {
+          queryParams: res,
+          queryParamsHandling: 'merge'
+        });
     });
   }
 }

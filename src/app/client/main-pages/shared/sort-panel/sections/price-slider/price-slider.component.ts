@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
@@ -9,16 +9,23 @@ import { Options } from '@angular-slider/ngx-slider';
 })
 export class PriceSliderComponent implements OnInit {
 
-  value = 40;
-  highValue = 60;
-  options: Options = {
-    floor: 0,
-    ceil: 100,
-  };
+  @Input() max: number;
+  @Input() min: number;
+  value: number;
+  highValue: number;
+  options: Options;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.options = {
+      floor: this.min,
+      ceil: this.max,
+      step: 0.1
+    };
+    this.value = this.min;
+    this.highValue = this.max;
   }
 
 }

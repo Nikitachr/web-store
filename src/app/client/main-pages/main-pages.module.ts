@@ -18,6 +18,7 @@ import { OptionComponent } from './shared/option/option.component';
 import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.resolver';
 import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
 import { AppModule } from "src/app/app.module";
+import { OptionsComponent } from './shared/options/options.component';
 
 const routes: Routes = [
   {
@@ -50,7 +51,8 @@ const routes: Routes = [
     PriceSliderComponent,
     BrandsComponent,
     UpPanelComponent,
-    OptionComponent
+    OptionComponent,
+    OptionsComponent
   ],
     imports: [
       OverlayModule,

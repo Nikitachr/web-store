@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-option',
@@ -6,13 +6,15 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./option.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OptionComponent implements OnInit {
+export class OptionComponent {
 
   @Input() title = 'title';
+  @Output() delete = new EventEmitter<void>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @HostListener('click', ['$event'])
+  onClick(): void {
+    this.delete.emit();
   }
+  constructor() { }
 
 }

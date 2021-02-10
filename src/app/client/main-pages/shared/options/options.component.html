@@ -1,0 +1,3 @@
+<ng-container *ngFor="let item of (options$ | ngrxPush | keyvalue)">
+  <app-option (delete)="onDelete(i, item.key, item.value)" class="m__right--5" *ngFor="let i of item.value?.split(',')" [title]="i"></app-option>
+</ng-container>

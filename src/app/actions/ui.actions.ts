@@ -7,7 +7,9 @@ export enum UiActionTypes {
   disableFilter = '[Ui] Disable filter',
   startLoading = '[Ui] Start loading',
   endLoading = '[Ui] End loading',
-  updateParams = '[Catalog] Update params'
+  updateParams = '[Catalog] Update params',
+  deleteParams = '[Catalog] Delete params',
+  updateDefaultParams = '[Catalog] Update default params'
 }
 
 export class ToggleMenuAction implements Action {
@@ -40,6 +42,18 @@ export class UpdateParamsAction implements Action {
   }
 }
 
+export class DeleteParamsAction implements Action {
+  readonly type = UiActionTypes.deleteParams;
+  constructor(public payload: any) {
+  }
+}
+
+export class UpdateDefaultParamsAction implements Action {
+  readonly type = UiActionTypes.updateDefaultParams;
+  constructor(public payload: any) {
+  }
+}
+
 export type UiActions =
     ToggleMenuAction
   | DisableMenuAction
@@ -47,5 +61,7 @@ export type UiActions =
   | DisableFilterAction
   | StartLoadingAction
   | EndLoadingAction
-  | UpdateParamsAction;
+  | UpdateParamsAction
+  | DeleteParamsAction
+  | UpdateDefaultParamsAction;
 

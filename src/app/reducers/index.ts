@@ -68,9 +68,17 @@ export function uiReducer(state: UiState = initialUiState, action: UiActions): U
 
 export function catalogReducer(state: CatalogState = initialCatalogState, action: UiActions): CatalogState {
   switch (action.type) {
-    case UiActionTypes.updateParams:
+    case UiActionTypes.updateDefaultParams:
       return {
         ...state, defaultParams: action.payload
+      };
+    case UiActionTypes.updateParams:
+      return {
+        ...state, params: action.payload
+      };
+    case UiActionTypes.deleteParams:
+      return {
+        ...state, params: {...state.params, ...action.payload }
       };
     default:
       return state;

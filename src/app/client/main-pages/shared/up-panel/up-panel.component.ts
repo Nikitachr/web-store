@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@
 import { Observable, Subject } from 'rxjs';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { filter, first, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import { PARAMS_PROVIDERS } from 'src/app/shared/providers/catalog-params.provider';
+import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
 import { AppState, selectFilter } from 'src/app/reducers';
 import { DisableFilterAction, ToggleFilterAction } from 'src/app/actions/ui.actions';
@@ -25,8 +25,10 @@ export class UpPanelComponent implements OnInit, OnDestroy {
   filter$ = this.store.select(selectFilter);
   overlayRef: OverlayRef;
 
+
   constructor(
     @Inject(BREAKPOINT) readonly breakpoint$: Observable<boolean>,
+    @Inject(URL_PARAMS) readonly params$: Observable<any>,
     private overlay: Overlay,
     private store: Store<AppState>
   ) { }
