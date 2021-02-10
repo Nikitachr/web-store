@@ -1,7 +1,8 @@
 @import "src/assets/scss/variables";
 
 :host {
-  width: 470px;
+  max-width: 470px;
+  width: 100%;
   background-color: $page-bg;
   border-radius: 30px;
   padding: 0 25px;

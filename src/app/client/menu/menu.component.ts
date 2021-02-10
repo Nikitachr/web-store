@@ -7,6 +7,8 @@ import { AppState } from 'src/app/reducers';
 import { CATEGORIES } from 'src/app/shared/providers/category.provider';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/shared/models/category.model';
+import { DialogComponent } from 'src/app/client/main-pages/shared/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-menu',
@@ -19,7 +21,8 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    @Inject(CATEGORIES) public categories$: Observable<Category>
+    @Inject(CATEGORIES) public categories$: Observable<Category>,
+    private matDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -27,5 +30,9 @@ export class MenuComponent implements OnInit {
 
   click(): void {
     this.store.dispatch(new DisableMenuAction());
+  }
+
+  onStatus(): void {
+    this.matDialog.open(DialogComponent, { panelClass: 'dialog' });
   }
 }

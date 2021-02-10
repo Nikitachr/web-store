@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onStatus(): void {
-    this.matDialog.open(DialogComponent, {panelClass: 'dialog'});
+    this.matDialog.open(DialogComponent, { panelClass: 'dialog' });
   }
 
 }
