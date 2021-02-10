@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
@@ -17,7 +17,10 @@ export class MainPageResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     this.store.dispatch(new StartLoadingAction());
-    return this.httpService.getCategories().pipe(
+    return forkJoin({
+      category: this.httpService.getCategories(),
+      products: this.httpService.getPromo()
+    }).pipe(
       tap(_ => this.store.dispatch(new EndLoadingAction()))
     );
   }

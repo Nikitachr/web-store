@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { fromEvent } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
+import { BehaviorSubject, fromEvent, merge, Subject } from 'rxjs';
+import { debounceTime, map, mergeMap } from 'rxjs/operators';
 
 import { opacityAnimation } from 'src/app/shared/animations/opacity.animation';
 import { AppState, selectLoading } from 'src/app/reducers';
@@ -14,18 +14,22 @@ import { AppState, selectLoading } from 'src/app/reducers';
 })
 export class AppComponent {
   title = 'web-store';
+  disableBtn$ = new BehaviorSubject<boolean>(false);
   loading$ = this.store.select(selectLoading);
-  showBtn$ =  fromEvent(document, 'scroll').pipe(
-    debounceTime(500),
-    map(() => window.scrollY > 500)
+  showBtn$ =  merge(
+    fromEvent(document, 'scroll').pipe(
+      debounceTime(500),
+      map(() => window.scrollY > 500)
+    ),
+    this.disableBtn$
   );
 
   constructor(private store: Store<AppState>) {
   }
 
   scrollToTop(): void {
+    this.disableBtn$.next(false);
     (function smoothscroll(): void {
-
       const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
 
       if (currentScroll > 0) {

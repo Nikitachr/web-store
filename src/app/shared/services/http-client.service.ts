@@ -27,6 +27,10 @@ export class HttpClientService {
     return this.http.get(`${this.ROOT_URL + ApiConstants.params}/${id}`);
   }
 
+  public getPromo(): Observable<any> {
+    return this.http.get(`${this.ROOT_URL + ApiConstants.promo}`);
+  }
+
   public query(url: string): Observable<any> {
     return this.http.get(`${this.ROOT_URL}products?${url}`);
   }

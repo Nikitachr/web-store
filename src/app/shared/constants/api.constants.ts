@@ -3,4 +3,5 @@ export const ApiConstants = {
   params: 'params',
   categories: 'categories',
   orders: 'orders',
+  promo: 'promo'
 };

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { first, map } from 'rxjs/operators';
+import { first, map, switchMap, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
@@ -22,6 +22,7 @@ import { HttpClientService } from 'src/app/shared/services/http-client.service';
 export class CatalogComponent implements OnInit {
 
   title: string;
+  products$: Observable<any>;
 
   constructor(
     @Inject(URL_PARAMS) readonly params$: Observable<any>,
@@ -34,10 +35,12 @@ export class CatalogComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.params$.subscribe(res => {
-      const query = new URLSearchParams(res).toString();
-      this.httpService.query(query).subscribe();
-    });
+    this.products$ = this.params$.pipe(
+      map(res => new URLSearchParams(res).toString()),
+      switchMap(res => this.httpService.query(res).pipe(map(res => res.data)))
+    );
+
+    // this.route.data.subscribe(res => console.log(res));
 
     this.params$.pipe(
       first(),
