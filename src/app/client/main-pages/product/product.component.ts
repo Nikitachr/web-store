@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery-9';
+import 'hammerjs';
 
 import { Product } from 'src/app/shared/models/product.model';
 import { BehaviorSubject } from 'rxjs';
@@ -44,7 +45,8 @@ export class ProductComponent implements OnInit {
         previewCloseOnClick: true,
         imageSwipe: true,
         imageSize: 'contain',
-        previewSwipe: true
+        previewSwipe: true,
+        thumbnailsSwipe: true
       },
       // max-width 400
       {

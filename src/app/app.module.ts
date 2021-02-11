@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { StoreModule } from '@ngrx/store';
@@ -34,6 +34,7 @@ import { NotFoundPageComponent } from './core/components/not-found-page/not-foun
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     ReactiveComponentModule,
+    HammerModule
   ],
   providers: [
     {
