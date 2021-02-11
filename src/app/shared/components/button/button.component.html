@@ -1,0 +1,4 @@
+<div [ngStyle]="{ 'backgroundColor': color }" class="btn d__flex d__flex--items-center d__flex--direction-column d__flex--justify-center">
+  <span [ngStyle]="{ 'color': contentColor }" class="text__fz--18 text__fw--500">{{text}}</span>
+  <app-svg-arrow  [color]="contentColor" [ngClass]="direction"></app-svg-arrow>
+</div>

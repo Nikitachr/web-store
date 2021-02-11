@@ -1,5 +1,4 @@
-import { Component, HostListener, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
-
+import { Component, HostListener, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox',
@@ -7,7 +6,7 @@ import { Component, HostListener, EventEmitter, Input, OnInit, Output, ChangeDet
   styleUrls: ['./checkbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxComponent implements OnInit {
+export class CheckboxComponent {
 
   @Input() value = false;
   @Output() valueChange = new EventEmitter<boolean>();
@@ -19,8 +18,5 @@ export class CheckboxComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -6,13 +6,10 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
   @Input() placeholder = 'Placeholder';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

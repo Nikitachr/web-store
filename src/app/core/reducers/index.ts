@@ -1,6 +1,7 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+
 import { environment } from 'src/environments/environment';
-import { UiActions, UiActionTypes } from 'src/app/actions/ui.actions';
+import { UiActions, UiActionTypes } from 'src/app/core/actions/ui.actions';
 
 export interface UiState {
   menu: boolean;

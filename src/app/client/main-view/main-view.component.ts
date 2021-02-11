@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 
 import { translateInAnimation } from 'src/app/shared/animations/translateIn.animation';
-import { AppState, selectMenu } from 'src/app/reducers';
+import { AppState, selectMenu } from 'src/app/core/reducers';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
-import { DisableMenuAction } from 'src/app/actions/ui.actions';
+import { DisableMenuAction } from 'src/app/core/actions/ui.actions';
 
 @Component({
   selector: 'app-main-view',

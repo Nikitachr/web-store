@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-option',

@@ -8,7 +8,7 @@
       <app-checkbox [value]="arr?.includes(item)" (valueChange)="check($event, item)" *ngFor="let item of data; let i = index">{{item}}</app-checkbox>
     </ng-container>
     <ng-template #price>
-      <app-price-slider [max]="data.max" [min]="data.min"></app-price-slider>
+      <app-price-slider (valueChange)="onChange($event)" [max]="data.max" [min]="data.min"></app-price-slider>
     </ng-template>
   </div>
 </div>

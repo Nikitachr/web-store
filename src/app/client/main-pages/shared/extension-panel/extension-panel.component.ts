@@ -8,9 +8,10 @@ import {
   Output
 } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AppState, selectParams } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
+
+import { AppState, selectParams } from 'src/app/core/reducers';
 
 @Component({
   selector: 'app-extension-panel',
@@ -53,10 +54,12 @@ export class ExtensionPanelComponent implements OnInit {
   constructor(private store: Store<AppState>, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    if (this.title === 'price') {
+      return;
+    }
     this.store.select(selectParams).pipe(
       tap(_ => this.cd.markForCheck())
     ).subscribe(res => this.arr = res[this.title]?.split(',') || []);
-    console.log(this.data.min);
   }
 
   check(value: boolean, item: string): void {
@@ -69,6 +72,7 @@ export class ExtensionPanelComponent implements OnInit {
     this.valueChange.emit(this.query);
   }
 
-
-
+  onChange(event: any): void {
+    //this.valueChange.emit(event);
+  }
 }

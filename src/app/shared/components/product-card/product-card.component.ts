@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core';
+
 import { marginAnimation } from 'src/app/shared/animations/margin.animation';
 
 @Component({
@@ -8,7 +9,7 @@ import { marginAnimation } from 'src/app/shared/animations/margin.animation';
   animations: [marginAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent {
 
   isHover: boolean;
   @Input() price = 10;
@@ -27,8 +28,5 @@ export class ProductCardComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

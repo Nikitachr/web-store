@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@
 import { Observable, Subject } from 'rxjs';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, takeUntil, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
-import { AppState, selectFilter } from 'src/app/reducers';
-import { DisableFilterAction, ToggleFilterAction } from 'src/app/actions/ui.actions';
+import { AppState, selectFilter } from 'src/app/core/reducers';
+import { DisableFilterAction, ToggleFilterAction } from 'src/app/core/actions/ui.actions';
 import { SortPanelComponent } from 'src/app/client/main-pages/shared/sort-panel/sort-panel.component';
 
 @Component({
@@ -24,7 +24,6 @@ export class UpPanelComponent implements OnInit, OnDestroy {
   showSort = false;
   filter$ = this.store.select(selectFilter);
   overlayRef: OverlayRef;
-
 
   constructor(
     @Inject(BREAKPOINT) readonly breakpoint$: Observable<boolean>,

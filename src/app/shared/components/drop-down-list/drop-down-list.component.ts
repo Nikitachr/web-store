@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-list',
@@ -6,11 +6,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./drop-down-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DropDownListComponent implements OnInit {
+export class DropDownListComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

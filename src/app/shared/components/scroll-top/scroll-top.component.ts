@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-top',
@@ -6,13 +6,9 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./scroll-top.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ScrollTopComponent implements OnInit {
+export class ScrollTopComponent {
 
-
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
 }

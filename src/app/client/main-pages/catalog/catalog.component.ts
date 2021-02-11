@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first, map, switchMap, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -8,8 +8,8 @@ import { PARAMS_PROVIDERS, URL_PARAMS } from 'src/app/shared/providers/catalog-p
 import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brakepoint.provider';
 import { CATEGORIES } from 'src/app/shared/providers/category.provider';
 import { Category } from 'src/app/shared/models/category.model';
-import { AppState, selectParams } from 'src/app/reducers';
-import { UpdateDefaultParamsAction, UpdateParamsAction } from 'src/app/actions/ui.actions';
+import { AppState, selectParams } from 'src/app/core/reducers';
+import { UpdateDefaultParamsAction, UpdateParamsAction } from 'src/app/core/actions/ui.actions';
 import { HttpClientService } from 'src/app/shared/services/http-client.service';
 
 @Component({

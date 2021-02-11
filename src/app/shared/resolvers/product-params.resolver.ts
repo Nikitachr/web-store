@@ -5,8 +5,8 @@ import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { HttpClientService } from 'src/app/shared/services/http-client.service';
-import { AppState } from 'src/app/reducers';
-import { EndLoadingAction, StartLoadingAction } from 'src/app/actions/ui.actions';
+import { AppState } from 'src/app/core/reducers';
+import { EndLoadingAction, StartLoadingAction } from 'src/app/core/actions/ui.actions';
 
 @Injectable({
   providedIn: 'root'

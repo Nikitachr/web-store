@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+
 import { TimelineMax, gsap, CSSPlugin } from 'gsap';
 
 @Component({

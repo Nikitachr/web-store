@@ -1,0 +1,16 @@
+@import "src/assets/scss/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1394px;
+  margin: auto;
+}
+
+.header {
+  height: 90px;
+  border-bottom: 1px solid $line;
+}

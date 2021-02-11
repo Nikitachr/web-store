@@ -6,20 +6,19 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CatalogComponent } from './catalog/catalog.component';
-import { SortPanelComponent } from './shared/sort-panel/sort-panel.component';
-import { ExtensionPanelComponent } from './shared/extension-panel/extension-panel.component';
-import { PriceSliderComponent } from './shared/sort-panel/sections/price-slider/price-slider.component';
-import { BrandsComponent } from './shared/sort-panel/sections/brands/brands.component';
-import { UpPanelComponent } from './shared/up-panel/up-panel.component';
-import { OptionComponent } from './shared/option/option.component';
+import { CatalogComponent } from 'src/app/client/main-pages/catalog/catalog.component';
+import { SortPanelComponent } from 'src/app/client/main-pages/shared/sort-panel/sort-panel.component';
+import { ExtensionPanelComponent } from 'src/app/client/main-pages/shared/extension-panel/extension-panel.component';
+import { PriceSliderComponent } from 'src/app/client/main-pages/shared/sort-panel/sections/price-slider/price-slider.component';
+import { UpPanelComponent } from 'src/app/client/main-pages/shared/up-panel/up-panel.component';
+import { OptionComponent } from 'src/app/client/main-pages/shared/option/option.component';
 import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.resolver';
 import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
-import { MatDialogModule } from '@angular/material/dialog';
-import { OptionsComponent } from './shared/options/options.component';
-import { DialogComponent } from './shared/dialog/dialog.component';
+import { OptionsComponent } from 'src/app/client/main-pages/shared/options/options.component';
+import { DialogComponent } from 'src/app/client/main-pages/shared/dialog/dialog.component';
 
 const routes: Routes = [
   {
@@ -50,7 +49,6 @@ const routes: Routes = [
     SortPanelComponent,
     ExtensionPanelComponent,
     PriceSliderComponent,
-    BrandsComponent,
     UpPanelComponent,
     OptionComponent,
     OptionsComponent,

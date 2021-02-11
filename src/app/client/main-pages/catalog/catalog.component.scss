@@ -2,6 +2,7 @@
 
 :host {
   width: 100%;
+  min-height: calc(100vh - 80px - 235px);
   max-width: 1394px;
   padding: 0 20px;
 }

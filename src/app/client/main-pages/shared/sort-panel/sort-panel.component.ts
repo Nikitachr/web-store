@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AppState, selectDefaultParams, selectParams } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { UpdateParamsAction } from 'src/app/actions/ui.actions';
+
+import { AppState, selectDefaultParams, selectParams } from 'src/app/core/reducers';
+import { UpdateParamsAction } from 'src/app/core/actions/ui.actions';
 
 @Component({
   selector: 'app-sort-panel',
@@ -20,7 +21,8 @@ export class SortPanelComponent implements OnInit {
     this.store.select(selectParams).subscribe(res => this.arr = res);
   }
 
-  onChange(value: string[], key: string): void {
+  onChange(value: string[] | object, key: string): void {
+    console.log(value);
     this.arr = { ...this.arr, [key]: value || null };
     this.store.dispatch(new UpdateParamsAction(this.arr));
   }

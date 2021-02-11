@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, fromEvent, merge, Subject } from 'rxjs';
-import { debounceTime, map, mergeMap } from 'rxjs/operators';
+import { BehaviorSubject, fromEvent, merge } from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
 
 import { opacityAnimation } from 'src/app/shared/animations/opacity.animation';
-import { AppState, selectLoading } from 'src/app/reducers';
+import { AppState, selectLoading } from 'src/app/core/reducers';
 
 @Component({
   selector: 'app-root',
@@ -36,9 +36,6 @@ export class AppComponent {
         window.requestAnimationFrame(smoothscroll);
         window.scrollTo(0, currentScroll - (currentScroll / 8));
       }
-
     })();
   }
 }
-
-

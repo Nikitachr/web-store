@@ -11,14 +11,16 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { reducers, metaReducers } from './reducers';
-import { environment } from '../environments/environment';
+import { reducers, metaReducers } from './core/reducers';
+import { environment } from 'src/environments/environment';
 import { HttpClientService } from 'src/app/shared/services/http-client.service';
 import { CATEGORIES, organizationFactory } from 'src/app/shared/providers/category.provider';
+import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundPageComponent
   ],
   imports: [
     OverlayModule,

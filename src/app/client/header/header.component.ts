@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AppState } from 'src/app/reducers';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AppState } from 'src/app/core/reducers';
 import { Store } from '@ngrx/store';
-
-import { ToggleMenuAction } from 'src/app/actions/ui.actions';
 import { MatDialog } from '@angular/material/dialog';
+
+import { ToggleMenuAction } from 'src/app/core/actions/ui.actions';
 import { DialogComponent } from 'src/app/client/main-pages/shared/dialog/dialog.component';
 
 @Component({
@@ -12,15 +12,12 @@ import { DialogComponent } from 'src/app/client/main-pages/shared/dialog/dialog.
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(
     private store: Store<AppState>,
     private matDialog: MatDialog
     ) { }
-
-  ngOnInit(): void {
-  }
 
   toggle(): void {
    this.store.dispatch(new ToggleMenuAction());

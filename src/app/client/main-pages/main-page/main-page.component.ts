@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -9,7 +8,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./main-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
 
   products$ = this.route.data.pipe(
     map(res => res.data.products)
@@ -19,8 +18,5 @@ export class MainPageComponent implements OnInit {
   );
 
   constructor(private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-  }
 
 }

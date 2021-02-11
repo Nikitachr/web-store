@@ -1,0 +1,28 @@
+@import "src/assets/scss/variables";
+
+:host {
+  height: 50px;
+  border-radius: 50px;
+  display: block;
+  cursor: pointer;
+  width: fit-content;
+}
+.btn {
+  padding: 0 48px;
+  height: 100%;
+  border-radius: 50px;
+  position: relative;
+}
+
+.left {
+  position: absolute;
+  left: 15px;
+  bottom: 14px;
+  transform: rotate(180deg);
+}
+
+.right {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+}
