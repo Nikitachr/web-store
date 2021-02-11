@@ -35,7 +35,6 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.img = { }
     this.galleryOptions = [
       {
         width: '500px',
@@ -48,10 +47,10 @@ export class ProductComponent implements OnInit {
         previewSwipe: true,
         thumbnailsSwipe: true
       },
-      // max-width 400
       {
-        breakpoint: 400,
-        preview: false
+        breakpoint: 600,
+        width: '300px',
+        height: '300px'
       }
     ];
   }

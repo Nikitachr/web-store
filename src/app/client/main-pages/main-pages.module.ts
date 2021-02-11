@@ -22,6 +22,7 @@ import { OptionsComponent } from 'src/app/client/main-pages/shared/options/optio
 import { DialogComponent } from 'src/app/client/main-pages/shared/dialog/dialog.component';
 import { ProductComponent } from 'src/app/client/main-pages/product/product.component';
 import { ProductPageResolver } from 'src/app/shared/resolvers/product.resolver';
+import { DesignSelectComponent } from './shared/design-select/design-select.component';
 
 const routes: Routes = [
   {
@@ -63,7 +64,8 @@ const routes: Routes = [
     OptionComponent,
     OptionsComponent,
     DialogComponent,
-    ProductComponent
+    ProductComponent,
+    DesignSelectComponent
   ],
   imports: [
     NgxGalleryModule,

@@ -18,6 +18,7 @@ import { CheckboxComponent } from 'src/app/shared/components/checkbox/checkbox.c
 import { ScrollTopComponent } from 'src/app/shared/components/scroll-top/scroll-top.component';
 import { InputComponent } from 'src/app/shared/components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ButtonComponent } from './components/button/button.component';
     CheckboxComponent,
     ScrollTopComponent,
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule,

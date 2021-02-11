@@ -14,7 +14,7 @@
       <h1 class="text__fz--30 text__fw--50">{{title}}</h1>
       <app-up-panel class="m__top--50"></app-up-panel>
       <div class="main m__top--30 d__flex d__flex--wrap d__flex--justify-around">
-        <app-product-card *ngFor="let product of (products$ | ngrxPush)" class="m--5" [name]="product.full_name" [photo]="product.photo_url[0]" [price]="product.price"></app-product-card>
+        <app-product-card *ngFor="let product of (products$ | ngrxPush)" class="m--5" [id]="product._id" [name]="product.full_name" [photo]="product.photo_url[0]" [price]="product.price"></app-product-card>
       </div>
     </div>
   </div>

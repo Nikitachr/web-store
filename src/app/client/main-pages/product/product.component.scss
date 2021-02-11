@@ -12,3 +12,21 @@
     padding: 0 20px;
   }
 }
+
+ngx-gallery {
+  @media (max-width: 870px) {
+    margin: 0;
+  }
+}
+
+.desc {
+  @media (max-width: 870px) {
+    margin-top: 30px;
+  }
+}
+
+.designs {
+  width: 100%;
+  max-width: 400px;
+}
+

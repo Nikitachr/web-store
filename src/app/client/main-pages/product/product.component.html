@@ -3,7 +3,7 @@
 
     <ngx-gallery class="m__right--30" [options]="galleryOptions" [images]="galleryImages$ | ngrxPush"></ngx-gallery>
 
-    <div class="d__flex d__flex--direction-column">
+    <div class="desc d__flex d__flex--direction-column">
 
       <h1 class="text__fw--500 text__fz--24">{{product.full_name}}</h1>
 
@@ -33,6 +33,17 @@
         <span class="text__color--3 text__fz--40 text__fw--700">{{product.price | currency}}</span>
         <span class="text__color--1 text__fz--16 text__fw--400">{{product.price | currency}}</span>
       </div>
+
+      <div class="d__flex m__top--15">
+        <span class="m__right--5 text__fw--400 text__fz--16">Дизайн:</span>
+        <span class="text__fw--400 text__fz--16 text__color--1">turquoise</span>
+      </div>
+
+      <div class="designs d__flex d__flex--wrap m__top--15">
+        <app-design-select class="m__right--10" *ngFor="let design of product.design" [name]="design.name" [color]="design.color"></app-design-select>
+      </div>
+
+      <span class="m__top--15 text__fz--16">Количество</span>
 
 
     </div>
