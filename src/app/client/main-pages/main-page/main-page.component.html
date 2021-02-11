@@ -22,7 +22,7 @@
     </div>
 
     <div class="d__flex m__top--20 d__flex--wrap d__flex--justify-around">
-      <app-product-card *ngFor="let product of products.top_sales" class="m--10" [id]="product.id" [photo]="product.photo_url[0]" [price]="product.price" [name]="product.full_name"></app-product-card>
+      <app-product-card *ngFor="let product of products.top_sales" class="m--10" [id]="product._id" [photo]="product.photo_url[0]" [price]="product.price" [name]="product.full_name"></app-product-card>
     </div>
   </section>
 
@@ -32,7 +32,7 @@
     </div>
 
     <div class="d__flex m__top--20 d__flex--wrap d__flex--justify-around">
-      <app-product-card *ngFor="let product of products.novetly" class="m--10" [id]="product.id" [photo]="product.photo_url[0]" [price]="product.price" [name]="product.full_name"></app-product-card>
+      <app-product-card *ngFor="let product of products.novetly" class="m--10" [id]="product._id" [photo]="product.photo_url[0]" [price]="product.price" [name]="product.full_name"></app-product-card>
     </div>
   </section>
 </ng-container>

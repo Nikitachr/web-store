@@ -7,6 +7,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CatalogComponent } from 'src/app/client/main-pages/catalog/catalog.component';
@@ -19,6 +20,8 @@ import { ProductParamsResolver } from 'src/app/shared/resolvers/product-params.r
 import { MainPageResolver } from 'src/app/shared/resolvers/main-page.resolver';
 import { OptionsComponent } from 'src/app/client/main-pages/shared/options/options.component';
 import { DialogComponent } from 'src/app/client/main-pages/shared/dialog/dialog.component';
+import { ProductComponent } from 'src/app/client/main-pages/product/product.component';
+import { ProductPageResolver } from 'src/app/shared/resolvers/product.resolver';
 
 const routes: Routes = [
   {
@@ -40,6 +43,13 @@ const routes: Routes = [
       data: MainPageResolver
     }
   },
+  {
+    path: 'product/:id',
+    component: ProductComponent,
+    resolve: {
+      data: ProductPageResolver
+    }
+  }
 ];
 
 @NgModule({
@@ -52,9 +62,11 @@ const routes: Routes = [
     UpPanelComponent,
     OptionComponent,
     OptionsComponent,
-    DialogComponent
+    DialogComponent,
+    ProductComponent
   ],
   imports: [
+    NgxGalleryModule,
     OverlayModule,
     FormsModule,
     NgxSliderModule,

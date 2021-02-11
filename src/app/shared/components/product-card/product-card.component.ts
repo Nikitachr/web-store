@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core';
 
 import { marginAnimation } from 'src/app/shared/animations/margin.animation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -27,6 +28,12 @@ export class ProductCardComponent {
     this.isHover = false;
   }
 
-  constructor() { }
+  @HostListener('click', ['$event'])
+  redirect(): void {
+    console.log(this.id);
+    this.router.navigate(['/product', this.id]);
+  }
+
+  constructor(private router: Router) { }
 
 }

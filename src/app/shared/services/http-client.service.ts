@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ApiConstants } from 'src/app/shared/constants/api.constants';
 import { Category } from 'src/app/shared/models/category.model';
+import { Product } from "src/app/shared/models/product.model";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class HttpClientService {
 
   public getParams(id: any): Observable<any> {
     return this.http.get(`${this.ROOT_URL + ApiConstants.params}/${id}`);
+  }
+
+  public getProduct(id: string): Observable<Product> {
+    return  this.http.get<Product>(`${this.ROOT_URL + ApiConstants.products}/${id}`);
   }
 
   public getPromo(): Observable<any> {

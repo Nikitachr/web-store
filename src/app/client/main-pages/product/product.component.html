@@ -1,0 +1,41 @@
+<ng-container *ngrxLet="productData$ as product">
+  <section class="m__top--60 d__flex">
+
+    <ngx-gallery class="m__right--30" [options]="galleryOptions" [images]="galleryImages$ | ngrxPush"></ngx-gallery>
+
+    <div class="d__flex d__flex--direction-column">
+
+      <h1 class="text__fw--500 text__fz--24">{{product.full_name}}</h1>
+
+      <div class="m__top--30">
+        <div class="d__flex">
+          <span class="text__color--1 text__fw--400 text__fz--16">Тип товара</span>
+          <span class="text__fw--500 text__fz--16 m__left--auto">{{product.category.full_name}}</span>
+        </div>
+
+        <div class="d__flex m__top--10">
+          <span class="text__color--1 text__fw--400 text__fz--16">Модель</span>
+          <span class="text__fw--500 text__fz--16 m__left--auto">{{product.name}}</span>
+        </div>
+
+        <div class="d__flex m__top--10">
+          <span class="text__color--1 text__fw--400 text__fz--16">Производитель</span>
+          <span class="text__fw--500 text__fz--16 m__left--auto">{{product.info.manufacturer}}</span>
+        </div>
+
+        <div class="d__flex m__top--10">
+          <span class="text__color--1 text__fw--400 text__fz--16">Бренд</span>
+          <span class="text__fw--500 text__fz--16 m__left--auto ">{{product.info.manufacturer}}</span>
+        </div>
+      </div>
+
+      <div class="m__top--30 m__left--30 d__flex d__flex--direction-column d__flex--items-center">
+        <span class="text__color--3 text__fz--40 text__fw--700">{{product.price | currency}}</span>
+        <span class="text__color--1 text__fz--16 text__fw--400">{{product.price | currency}}</span>
+      </div>
+
+
+    </div>
+
+  </section>
+</ng-container>
