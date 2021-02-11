@@ -13,7 +13,6 @@ import { NavigationButtonComponent } from 'src/app/shared/components/navigation-
 import { SvgArrowComponent } from 'src/app/shared/components/svgs/svg-arrow/svg-arrow.component';
 import { ProductCardComponent } from 'src/app/shared/components/product-card/product-card.component';
 import { ExpansionPanelComponent } from 'src/app/shared/components/expansion-panel/expansion-panel.component';
-import { DropDownListComponent } from 'src/app/shared/components/drop-down-list/drop-down-list.component';
 import { CheckboxComponent } from 'src/app/shared/components/checkbox/checkbox.component';
 import { ScrollTopComponent } from 'src/app/shared/components/scroll-top/scroll-top.component';
 import { InputComponent } from 'src/app/shared/components/input/input.component';
@@ -34,7 +33,6 @@ import { CounterComponent } from './components/counter/counter.component';
     SvgArrowComponent,
     ProductCardComponent,
     ExpansionPanelComponent,
-    DropDownListComponent,
     CheckboxComponent,
     ScrollTopComponent,
     InputComponent,
