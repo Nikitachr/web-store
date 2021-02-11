@@ -43,7 +43,8 @@ export class ProductComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide,
         previewCloseOnClick: true,
         imageSwipe: true,
-        imageSize: 'contain'
+        imageSize: 'contain',
+        previewSwipe: true
       },
       // max-width 400
       {
