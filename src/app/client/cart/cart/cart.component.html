@@ -1,0 +1,26 @@
+<ng-container *ngrxLet="state$ as state">
+  <app-cart-header></app-cart-header>
+  <div class="container">
+    <ng-container *ngComponentOutlet="state.component"></ng-container>
+  </div>
+
+  <ng-container [ngSwitch]="state.state">
+
+    <div *ngSwitchCase="CartState.Cart" class="btns d__flex d__flex--items-center d__flex--justify-between">
+      <app-button [routerLink]="['/']" type="disabled" direction="left" text="Вернуться в меню"></app-button>
+      <app-button (click)="state$.next(checkout)" type="active" direction="right" text="Оформить заказ"></app-button>
+    </div>
+
+    <div *ngSwitchCase="CartState.Checkout" class="btns d__flex d__flex--items-center d__flex--justify-between">
+      <app-button (click)="state$.next(cart)" type="disabled" direction="left" text="Вернуться в корзину"></app-button>
+      <app-button (click)="state$.next(accepted)" type="active" direction="right" text="Перейти к оплате"></app-button>
+    </div>
+
+    <div *ngSwitchCase="CartState.Accepted" class="btn">
+      <app-button [routerLink]="['/']" type="active" direction="left" text="Вернуться на главную"></app-button>
+    </div>
+
+  </ng-container>
+
+</ng-container>
+

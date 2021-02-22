@@ -9,5 +9,6 @@ export interface Product {
   name: string;
   orderIndex: number;
   photo_url: string[];
+  price: number;
   _id: string;
 }

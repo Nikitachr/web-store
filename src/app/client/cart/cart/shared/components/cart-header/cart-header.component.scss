@@ -1,0 +1,11 @@
+@import "src/assets/scss/variables";
+
+:host {
+  width: 100%;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1394px;
+  border-bottom: 2px solid $line;
+}

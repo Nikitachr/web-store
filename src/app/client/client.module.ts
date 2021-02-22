@@ -6,17 +6,21 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { MainViewComponent } from 'src/app/client/main-view/main-view.component';
-import { HeaderComponent } from 'src/app/client/header/header.component';
-import { FooterComponent } from 'src/app/client/footer/footer.component';
+import { MainViewComponent } from 'src/app/client/shared/main-view/main-view.component';
+import { HeaderComponent } from 'src/app/client/shared/header/header.component';
+import { FooterComponent } from 'src/app/client/shared/footer/footer.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MenuComponent } from 'src/app/client/menu/menu.component';
+import { MenuComponent } from 'src/app/client/shared/menu/menu.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainViewComponent,
     loadChildren: () => import('./main-pages/main-pages.module').then(m => m.MainPagesModule),
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
   }
 ];
 

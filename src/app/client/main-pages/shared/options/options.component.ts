@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { URL_PARAMS } from 'src/app/shared/providers/catalog-params.provider';
 import { AppState } from 'src/app/core/reducers';
-import { DeleteParamsAction } from 'src/app/core/actions/ui.actions';
+import { DeleteParamsAction } from 'src/app/core/actions/catalog.actions';
 
 @Component({
   selector: 'app-options',

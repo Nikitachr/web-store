@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   galleryImages$ = new BehaviorSubject<any>([]);
 
   productData$ = this.route.data.pipe(
-    map(res => res.data.data),
+    map(res => res.data),
     tap((res: Product) => {
       const imgs = res.photo_url.map(el => {
         return {

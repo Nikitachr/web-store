@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { AppState, selectDefaultParams, selectParams } from 'src/app/core/reducers';
-import { UpdateParamsAction } from 'src/app/core/actions/ui.actions';
+import { UpdateParamsAction } from 'src/app/core/actions/catalog.actions';
 
 @Component({
   selector: 'app-sort-panel',

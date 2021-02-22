@@ -9,7 +9,7 @@ import { BREAKPOINT, BREAKPOINT_PROVIDERS } from 'src/app/shared/providers/brake
 import { CATEGORIES } from 'src/app/shared/providers/category.provider';
 import { Category } from 'src/app/shared/models/category.model';
 import { AppState, selectParams } from 'src/app/core/reducers';
-import { UpdateDefaultParamsAction, UpdateParamsAction } from 'src/app/core/actions/ui.actions';
+import { UpdateDefaultParamsAction, UpdateParamsAction } from 'src/app/core/actions/catalog.actions';
 import { HttpClientService } from 'src/app/shared/services/http-client.service';
 
 @Component({
@@ -48,8 +48,8 @@ export class CatalogComponent implements OnInit {
       .subscribe(res => this.store.dispatch(new UpdateParamsAction(res)));
 
     this.route.data.pipe(first()).subscribe(res => {
-      this.store.dispatch(new UpdateDefaultParamsAction(res.data.params.data));
-      this.title = res.data.category.data.full_name;
+      this.store.dispatch(new UpdateDefaultParamsAction(res.data.params));
+      this.title = res.data.category.full_name;
     });
 
     this.store.select(selectParams).subscribe(res => {
